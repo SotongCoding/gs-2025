@@ -20,6 +20,8 @@ namespace SotongStudio
         {
             TurnAmount++;
             OnTurnChange.Invoke();
+
+            Debug.Log($"Turn changed to: {TurnAmount}");
         }
 
 #if UNITY_EDITOR
