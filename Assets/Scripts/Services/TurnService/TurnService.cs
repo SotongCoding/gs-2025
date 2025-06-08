@@ -2,7 +2,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SotongStudio.Unlink
+namespace SotongStudio
 {
     public interface ITurnControl
     {
@@ -15,8 +15,6 @@ namespace SotongStudio.Unlink
 
         public int TurnAmount { get; private set; } = 0;
         public UnityEvent OnTurnChange { get; private set; } = new();
-
-        private bool _disposedValue;
 
         private void IncrementTurn()
         {
