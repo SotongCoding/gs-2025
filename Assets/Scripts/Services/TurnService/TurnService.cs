@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using SotongStudio.VContainer;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,7 @@ namespace SotongStudio
         UnityEvent OnTurnChange { get; }
     }
 
+    [RegisterAs(typeof(ITurnControl))]
     public class TurnService : MonoBehaviour, ITurnControl
     {
 

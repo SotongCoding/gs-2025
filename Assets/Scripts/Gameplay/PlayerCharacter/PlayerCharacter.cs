@@ -1,5 +1,4 @@
-using SotongStudio.Unlink;
-using UnityEngine;
+using SotongStudio.VContainer;
 
 namespace SotongStudio
 {
@@ -7,9 +6,10 @@ namespace SotongStudio
     {
         IWeaponLogic UsedWeapon { get; }
     }
+    [RegisterAs(typeof(IPlayerCharacter))]
     public class PlayerCharacter : IPlayerCharacter
     {
-        public IWeaponLogic UsedWeapon { get; private set; }
+        public IWeaponLogic UsedWeapon { get; private set; } = new MagicWandLogic();
 
     }
 }

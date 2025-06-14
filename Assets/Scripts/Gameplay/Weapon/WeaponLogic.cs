@@ -7,12 +7,14 @@ namespace SotongStudio
         void DoAttackProcess();
     }
 
-    public class WeaponLogic : IWeaponLogic
+    public abstract class WeaponLogic : IWeaponLogic
     {
-        private readonly IWeaponView _view;
+        //private readonly IWeaponView _view;
         public void DoAttackProcess()
         {
-            _view.DoAttackAnimation();
+            //_view.DoAttackAnimation();
+
+            Debug.Log($"{GetType().Name} attack process started.");
         }
     }
 }
