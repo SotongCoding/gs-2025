@@ -1,17 +1,23 @@
 using UnityEngine;
-using VContainer;
+using VContainer.Unity;
 
 namespace SotongStudio
 {
-    public class GameplayController : MonoBehaviour
+    public class GameplayController : IStartable
     {
-        [Inject]
-        private void Inject(ITurnControl turnControl,
-                            ICharacterActionControl characterActionControl)
+        private readonly IWeaponSwitchLogic _weaponSwitch;
+
+        public GameplayController(IWeaponSwitchLogic weaponSwitch,
+                                  ITurnControl turnControl,
+                                  ICharacterActionControl characterActionControl)
         {
             turnControl.OnTurnChange.AddListener(characterActionControl.DoAttackProcess);
+            _weaponSwitch = weaponSwitch;
+        }
 
-            Debug.Log("Check");
+        public void Start()
+        {
+            _weaponSwitch.SwitchPlayerWeapon(PlayerWeapon.Sword);
         }
     }
 }

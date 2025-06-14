@@ -5,11 +5,16 @@ namespace SotongStudio
     public interface IPlayerCharacter
     {
         IWeaponLogic UsedWeapon { get; }
+        void SetEquipedWeapon(IWeaponLogic weapon);
     }
-    [RegisterAs(typeof(IPlayerCharacter))]
+
     public class PlayerCharacter : IPlayerCharacter
     {
-        public IWeaponLogic UsedWeapon { get; private set; } = new MagicWandLogic();
+        public IWeaponLogic UsedWeapon { get; private set; } 
 
+        public void SetEquipedWeapon(IWeaponLogic weapon)
+        {
+            UsedWeapon = weapon;
+        }
     }
 }

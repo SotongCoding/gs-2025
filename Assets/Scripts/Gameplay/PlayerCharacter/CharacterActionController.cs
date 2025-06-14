@@ -9,7 +9,6 @@ namespace SotongStudio
         void DoAttackProcess();
     }
 
-    [RegisterAs(typeof(ICharacterActionControl))]
     public class CharacterActionController : ICharacterActionControl
     {
         private readonly IPlayerCharacter _playerCharacter;
