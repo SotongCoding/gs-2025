@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace SotongStudio.Unlink.SharedData.PredefinedData
+namespace SotongStudio.SharedData.PredefinedData
 {
     public abstract class PredefinedCollection<T> : ScriptableObject where T : ScriptableObject, IPredefinedItem
     {

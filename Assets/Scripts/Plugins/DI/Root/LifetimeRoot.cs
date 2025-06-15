@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using System.Linq;
 using NaughtyAttributes;
-using SotongStudio.Unlink.SharedData.PredefinedData;
+using SotongStudio.SharedData.PlayerCollection;
+using SotongStudio.SharedData.PredefinedData;
 using SotongStudio.VContainer;
 using UnityEngine;
 using VContainer;
@@ -15,6 +15,13 @@ namespace SotongStudio.Plugins.DI
         [SerializeField] private List<ScriptableObject> _predefinedCollection;
         [SerializeField] private MonoBehaviour[] _gameObject;
         protected override void Configure(IContainerBuilder builder)
+        {
+            InternalConfigure(builder);
+
+            builder.RegisterPlayerCollection();
+        }
+
+        private void InternalConfigure(IContainerBuilder builder)
         {
             foreach (var data in _registerdScriptableObjects)
             {

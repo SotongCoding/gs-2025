@@ -1,6 +1,6 @@
 #nullable enable
 
-namespace SotongStudio.Unlink.SharedData.PredefinedData
+namespace SotongStudio.SharedData.PredefinedData
 {
     public interface IPredefinedItem 
     {
