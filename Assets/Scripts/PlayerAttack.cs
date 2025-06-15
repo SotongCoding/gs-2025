@@ -3,14 +3,19 @@ using SotongStudio; // Penting: untuk mengakses ITurnControl dan TurnService
 
 public class PlayerAttack : MonoBehaviour
 {
-    // Referensi ke sistem kontrol giliran
-    [SerializeField] private TurnService _turnService; // Drag and drop TurnService GameObject di Inspector
-
-    // Variabel untuk kontrol satu aksi per giliran
-    private int _lastTurnActed=-999; // Melacak giliran terakhir player beraksi
+    [SerializeField] private TurnService _turnService; 
+    private int _lastTurnActed=-999; 
+    
+    // Untuk deteksi tahan tombol magic
+    private float _magicHoldTime = 0f;
+    private float _requiredHoldDuration = 1f; 
+    private bool _isHoldingMagic = false;
+    private int currentTurn;
+    
 
     private void Awake()
     {
+        currentTurn = _turnService.TurnAmount;
         // Pastikan _turnService terisi
         if (_turnService == null)
         {
@@ -38,15 +43,33 @@ public class PlayerAttack : MonoBehaviour
             TryAttack(AttackType.Sword);
         }
 
-        // Serangan Sihir (tombol Y)
+        // Magic Attack (Y) – tahan tombol
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            // Cek apakah player sudah beraksi di giliran ini
-            if (_lastTurnActed == _turnService.TurnAmount)
+            _magicHoldTime = 0f;
+            _isHoldingMagic = true;
+        }
+
+        if (Input.GetKey(KeyCode.Y) && _isHoldingMagic)
+        {
+            _magicHoldTime += Time.deltaTime;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Y) && _isHoldingMagic)
+        {
+            _isHoldingMagic = false;
+
+            if (_lastTurnActed == currentTurn)
+                return;
+
+            if (_magicHoldTime >= _requiredHoldDuration)
             {
-                return; // Keluar dari Update, tidak ada input yang diproses
+                TryAttack(AttackType.Magic);
             }
-            TryAttack(AttackType.Magic);
+            else
+            {
+                Debug.Log("Magic attack canceled: hold duration too short.");
+            }
         }
     }
 
@@ -56,7 +79,7 @@ public class PlayerAttack : MonoBehaviour
     // Metode untuk mencoba melakukan serangan
     private void TryAttack(AttackType type)
     {
-        int currentTurn = _turnService.TurnAmount;
+        currentTurn = _turnService.TurnAmount;
 
         Debug.Log($"Player attempts to attack with {type} at Turn: {currentTurn}");
 
@@ -70,7 +93,7 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log("Executing Magic Attack ");
         }
 
-        // Tandai bahwa player sudah beraksi di giliran ini
+        
         _lastTurnActed = currentTurn;
         Debug.Log($"Player has acted this turn (Turn: {currentTurn}). No more actions this turn.");
     }
