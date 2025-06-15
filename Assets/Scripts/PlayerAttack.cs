@@ -10,12 +10,10 @@ public class PlayerAttack : MonoBehaviour
     private float _magicHoldTime = 0f;
     private float _requiredHoldDuration = 1f; 
     private bool _isHoldingMagic = false;
-    private int currentTurn;
     
 
     private void Awake()
     {
-        currentTurn = _turnService.TurnAmount;
         // Pastikan _turnService terisi
         if (_turnService == null)
         {
@@ -59,8 +57,10 @@ public class PlayerAttack : MonoBehaviour
         {
             _isHoldingMagic = false;
 
-            if (_lastTurnActed == currentTurn)
+            if (_lastTurnActed == _turnService.TurnAmount)
+            {
                 return;
+            }
 
             if (_magicHoldTime >= _requiredHoldDuration)
             {
@@ -79,7 +79,7 @@ public class PlayerAttack : MonoBehaviour
     // Metode untuk mencoba melakukan serangan
     private void TryAttack(AttackType type)
     {
-        currentTurn = _turnService.TurnAmount;
+        int currentTurn = _turnService.TurnAmount;
 
         Debug.Log($"Player attempts to attack with {type} at Turn: {currentTurn}");
 
@@ -93,7 +93,7 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log("Executing Magic Attack ");
         }
 
-        
+        // Tandai bahwa player sudah beraksi di giliran ini
         _lastTurnActed = currentTurn;
         Debug.Log($"Player has acted this turn (Turn: {currentTurn}). No more actions this turn.");
     }
