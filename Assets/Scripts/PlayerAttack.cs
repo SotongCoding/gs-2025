@@ -26,13 +26,11 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         if (_turnService == null) return; // Jangan lakukan apa-apa jika TurnService tidak ada
-
-        // Cek apakah player sudah beraksi di giliran ini
         
-
         // Serangan Pedang (tombol X)
         if (Input.GetKeyDown(KeyCode.X))
         {
+            // Cek apakah player sudah beraksi di giliran ini
             if (_lastTurnActed == _turnService.TurnAmount)
             {
                 return; // Keluar dari Update, tidak ada input yang diproses
@@ -43,6 +41,7 @@ public class PlayerAttack : MonoBehaviour
         // Serangan Sihir (tombol Y)
         if (Input.GetKeyDown(KeyCode.Y))
         {
+            // Cek apakah player sudah beraksi di giliran ini
             if (_lastTurnActed == _turnService.TurnAmount)
             {
                 return; // Keluar dari Update, tidak ada input yang diproses
@@ -62,32 +61,18 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log($"Player attempts to attack with {type} at Turn: {currentTurn}");
 
         // Lakukan serangan
-        if (type == AttackType.Sword)
+        if (type == AttackType.Sword) //AttackType.Sword
         {
-            PerformSwordAttack();
+            Debug.Log("Executing Sword Attack ");
         }
         else // AttackType.Magic
         {
-            PerformMagicAttack();
+            Debug.Log("Executing Magic Attack ");
         }
 
         // Tandai bahwa player sudah beraksi di giliran ini
         _lastTurnActed = currentTurn;
         Debug.Log($"Player has acted this turn (Turn: {currentTurn}). No more actions this turn.");
     }
-
-    // --- Metode Placeholder untuk Logika Serangan Sebenarnya ---
-    // Di sini Anda akan menambahkan logika actual untuk serangan Anda.
-    // Ini bisa memanggil skrip lain, memutar animasi, menghasilkan efek, dll.
-    private void PerformSwordAttack()
-    {
-        Debug.Log("Executing Sword Attack ");
-        // Contoh: GetComponent<AttackAction>().ExecuteSwordAttack();
-    }
-
-    private void PerformMagicAttack()
-    {
-        Debug.Log("Executing Magic Attack ");
-        // Contoh: GetComponent<AttackAction>().ExecuteMagicAttack();
-    }
+    
 }
