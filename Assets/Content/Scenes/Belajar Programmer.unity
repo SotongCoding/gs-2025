@@ -712,8 +712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b929448f2523b4993bff2a820193d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 2084356090}
-  gameManager: {fileID: 2008723936}
+  _text: {fileID: 2084356090}
+  _gameManager: {fileID: 2008723936}
 --- !u!1 &1672670100
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +858,7 @@ GameObject:
   - component: {fileID: 1691552352}
   - component: {fileID: 1691552351}
   - component: {fileID: 1691552353}
+  - component: {fileID: 1691552354}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -947,8 +948,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0996beaf4f1986c4ba4f7a983212af8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isChantingSpell: 0
-  button: {fileID: 217660912}
+  IsChantingSpell: 0
+  _buttonView: {fileID: 217660912}
+  _playerActionView: {fileID: 1691552354}
+--- !u!114 &1691552354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691552349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51164c146644b584ea87613866d8574c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1899627298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,11 +1227,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f926b69271760f34eb789cb16fddf7d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerTurn: 0
-  turnService: {fileID: 510681762}
-  playerCommand: {fileID: 217660910}
-  player: {fileID: 1691552353}
-  button: {fileID: 217660912}
+  IsPlayerTurn: 0
+  _playerCommand: {fileID: 217660910}
+  _turnService: {fileID: 510681762}
+  _player: {fileID: 1691552353}
+  _buttonView: {fileID: 217660912}
 --- !u!1 &2053655397
 GameObject:
   m_ObjectHideFlags: 0

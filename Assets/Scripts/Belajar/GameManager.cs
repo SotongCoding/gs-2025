@@ -4,75 +4,73 @@ namespace SotongStudio
 {
     public class GameManager : MonoBehaviour
     {
-        int currentTurn;
-        int playerTurn;
-        public bool isPlayerTurn;
-        [SerializeField] TurnService turnService;
-        [SerializeField] GameObject playerCommand;
-        [SerializeField] PlayerActionView player;
-        [SerializeField] Button button;
+        private int _currentTurn;
+        private int _playerTurn;
+        public bool IsPlayerTurn;
+        [SerializeField] private GameObject _playerCommand;
+        [SerializeField] private TurnService _turnService;
+        [SerializeField] private PlayerActionLogic _player;
+        [SerializeField] private ButtonView _buttonView;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        private void Start()
         {
             RandomizeTurn();
-            currentTurn = turnService.TurnAmount;
+            _currentTurn = _turnService.TurnAmount;
 
-            button.OnButtonPedangPressed += ChangeTurn;
-            button.OnButtonSihirPressed += ChangeTurn;
+            _buttonView.OnButtonPedangPressed += ChangeTurn;
+            _buttonView.OnButtonSihirPressed += ChangeTurn;
         }
 
         private void OnDestroy()
         {
-            button.OnButtonPedangPressed -= ChangeTurn;
-            button.OnButtonSihirPressed -= ChangeTurn;
+            _buttonView.OnButtonPedangPressed -= ChangeTurn;
+            _buttonView.OnButtonSihirPressed -= ChangeTurn;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
             NewTurn();
 
-            if (isPlayerTurn)
+            if (IsPlayerTurn)
             {
-                playerCommand.SetActive(true);
+                _playerCommand.SetActive(true);
             }
             else
             {
-                playerCommand.SetActive(false);
+                _playerCommand.SetActive(false);
             }
         }
 
-        void NewTurn()
+        private void NewTurn()
         {
-            if (turnService.TurnAmount > currentTurn)
+            if (_turnService.TurnAmount > _currentTurn)
             {
-                currentTurn++;
-                isPlayerTurn = true;
-                if (player.isChantingSpell)
+                _currentTurn++;
+                IsPlayerTurn = true;
+                if (_player.IsChantingSpell)
                 {
-                    player.ChantingSpell();
-                    isPlayerTurn = false;
+                    _player.SeranganSihir();
+                    IsPlayerTurn = false;
                 }
             }
         }
 
-        void RandomizeTurn()
+        private void RandomizeTurn()
         {
-            playerTurn = Random.Range(0, 2);
+            _playerTurn = Random.Range(0, 2);
 
-            if (turnService.TurnAmount % 2 == playerTurn)
+            if (_turnService.TurnAmount % 2 == _playerTurn)
             {
-                isPlayerTurn = true;
+                IsPlayerTurn = true;
             }
-            else isPlayerTurn = false;
+            else IsPlayerTurn = false;
         }
 
-        void ChangeTurn()
+        private void ChangeTurn()
         {
-            if (isPlayerTurn)
+            if (IsPlayerTurn)
             {
-                isPlayerTurn = false;
+                IsPlayerTurn = false;
             }
         }
     }

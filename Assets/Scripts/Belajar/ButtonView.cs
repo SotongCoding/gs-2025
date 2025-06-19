@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SotongStudio
 {
-    public class Button : MonoBehaviour
+    public class ButtonView : MonoBehaviour
     {
         public Action OnButtonPedangPressed;
         public Action OnButtonSihirPressed;
