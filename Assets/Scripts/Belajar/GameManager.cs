@@ -10,21 +10,11 @@ namespace SotongStudio
         [SerializeField] private GameObject _playerCommand;
         [SerializeField] private TurnService _turnService;
         [SerializeField] private PlayerActionLogic _player;
-        [SerializeField] private ButtonView _buttonView;
 
         private void Start()
         {
             RandomizeTurn();
             _currentTurn = _turnService.TurnAmount;
-
-            _buttonView.OnButtonPedangPressed += ChangeTurn;
-            _buttonView.OnButtonSihirPressed += ChangeTurn;
-        }
-
-        private void OnDestroy()
-        {
-            _buttonView.OnButtonPedangPressed -= ChangeTurn;
-            _buttonView.OnButtonSihirPressed -= ChangeTurn;
         }
 
         private void Update()
@@ -66,7 +56,7 @@ namespace SotongStudio
             else IsPlayerTurn = false;
         }
 
-        private void ChangeTurn()
+        public void ChangeTurn()
         {
             if (IsPlayerTurn)
             {
