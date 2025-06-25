@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 134717d93b5c9799491fff368a7ee628
+guid: f1f74866af93a6145bc9d74e1542c879
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2354925906488889208
-    second: Kaela_Walk0000_0
+      213: -4176928632287528121
+    second: Tile 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,13 +46,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 100, y: 100, z: 100, w: 100}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kaela_Walk0000_0
+      name: Tile 1_0
       rect:
         serializedVersion: 2
-        x: 93
-        y: 36
-        width: 179
-        height: 196
+        x: 0
+        y: 0
+        width: 300
+        height: 300
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 100, y: 100, z: 100, w: 100}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8807d5f6d5f915fd0800000000000000
-      internalID: -2354925906488889208
+      spriteID: 74bf75c0a819806c0800000000000000
+      internalID: -4176928632287528121
       vertices: []
       indices: 
       edges: []
@@ -125,8 +125,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 6f17d16f68dd9699c8da06ca668bf5a3
+    internalID: 2753890
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Kaela_Walk0000_0: -2354925906488889208
+      Tile 1_0: -4176928632287528121
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

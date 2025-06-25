@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: beaf14878e40575e7896e9d95d59ee72
+guid: e4d2af6def0aef3a1bacc0307a9a757c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3811483817223573856
-    second: Kaela_Walk0002_0
+      213: -4590964509868167138
+    second: Kaela_Idle0003_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kaela_Walk0002_0
+      name: Kaela_Idle0003_0
       rect:
         serializedVersion: 2
-        x: 93
-        y: 38
-        width: 179
-        height: 194
+        x: 91
+        y: 37
+        width: 180
+        height: 198
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 061d2c0765c15e430800000000000000
-      internalID: 3811483817223573856
+      spriteID: e10f1ec2a1e9940c0800000000000000
+      internalID: -4590964509868167138
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Kaela_Walk0002_0: 3811483817223573856
+      Kaela_Idle0003_0: -4590964509868167138
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
