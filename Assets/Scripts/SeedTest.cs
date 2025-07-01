@@ -7,16 +7,13 @@ namespace SotongStudio
     public class SeedTest : MonoBehaviour
     {
         private IPlayerSeedDataService _seedDataService;
-        private ISeedDataFactory _seedDataFactory;
         private string[] _noneOwned;
 
         [Inject]
-        private void Inject(IPlayerSeedDataService seedDataService,
-                            ISeedDataFactory seedDataFactory)
+        private void Inject(IPlayerSeedDataService seedDataService)
         {
 
             _seedDataService = seedDataService;
-            _seedDataFactory = seedDataFactory;
             
             _noneOwned = seedDataService.GetNonOwnedSeeds();
         }
@@ -34,8 +31,7 @@ namespace SotongStudio
         [Button]
         public void TestAddSeedToInventory()
         {
-            var createdSeed = _seedDataFactory.CreateSeedInventoryData("SEED-001"); 
-            _seedDataService.AddSeedToInventory(createdSeed);
+            _seedDataService.AddCollectionSeedToInventory("SEED-001");
 
             Debug.Log("Added Seed");
         }

@@ -17,13 +17,13 @@ namespace SotongStudio
     }
     public class CharacterSeedInventoryProvider : ICharacterSeedInventoryProvider, ICharacterSeedInventoryProviderUpdate
     {
-        private List<ISeedData> _currentHavedSeed = new List<ISeedData>();
+        private List<ISeedData> _currentHoldSeed = new List<ISeedData>();
 
         public void AddSeed(ISeedData data)
         {
-            if (!_currentHavedSeed.Contains(data))
+            if (!_currentHoldSeed.Contains(data))
             {
-                _currentHavedSeed.Add(data);
+                _currentHoldSeed.Add(data);
             }
             else
             {
@@ -33,17 +33,17 @@ namespace SotongStudio
 
         public void RemoveSeed(ISeedData data)
         {
-            _currentHavedSeed.Remove(data);
+            _currentHoldSeed.Remove(data);
         }
 
         public IEnumerable<ISeedData> GetAllOwnedSeeds()
         {
-            return _currentHavedSeed;
+            return _currentHoldSeed;
         }
 
         public IEnumerable<string> GetAllOwnedSeedsIds()
         {
-            return _currentHavedSeed.Select(data => data.SeedId);
+            return _currentHoldSeed.Select(data => data.SeedId);
         }
     }
 }
