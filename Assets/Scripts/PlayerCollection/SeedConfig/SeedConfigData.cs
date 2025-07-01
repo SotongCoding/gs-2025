@@ -11,11 +11,8 @@ namespace SotongStudio
         [SerializeField]
         private string SeedId;
 
-        [field: SerializeField]
-        public string SeedName { get; private set; }
-
-        [field: SerializeField]
-        public SeedType SeedType { get; private set; }
+        [field:SerializeField]
+        public SeedInfoData InfoData { get; private set; }
 
         [field: SerializeField]
         public SeedVisualData VisualData { get; private set; }
@@ -29,6 +26,17 @@ namespace SotongStudio
 
         //[field: SerializeField]
         //public SeedThrowBehaviour[] ThrowBehaviours { get; private set; }
+    }
+
+    [System.Serializable]
+    public class SeedInfoData
+    {
+        [field: SerializeField]
+        public string SeedName { get; private set; }
+
+        [field: SerializeField]
+        public SeedType SeedType { get; private set; }
+
     }
 
     [System.Serializable]
