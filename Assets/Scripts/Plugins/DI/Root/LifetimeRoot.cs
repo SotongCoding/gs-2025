@@ -45,8 +45,8 @@ namespace SotongStudio.Plugins.DI
         [Button]
         private void GetPredefineCollection()
         {
-            var folderPath = Application.dataPath + "/Content/PredefinedCollection";
-            string[] files = System.IO.Directory.GetFiles(folderPath, "*Collection.asset", System.IO.SearchOption.AllDirectories);
+            var folderPath = Application.dataPath + "/Content/Predefined Collection";
+            string[] files = System.IO.Directory.GetFiles(folderPath, "* Collection.asset", System.IO.SearchOption.AllDirectories);
 
             _predefinedCollection.Clear();
             foreach (var file in files)
