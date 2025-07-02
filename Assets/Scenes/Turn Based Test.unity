@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17393bfed56394f42ab2d263c2b70427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonView: {fileID: 1853113295}
+  _playerActionView: {fileID: 1853113295}
   _battleSystemView: {fileID: 1575257037}
 --- !u!4 &69628633
 Transform:

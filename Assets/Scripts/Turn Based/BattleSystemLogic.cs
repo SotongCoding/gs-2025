@@ -7,18 +7,18 @@ namespace SotongStudio
 
     public class BattleSystemLogic : IStartable
     {
-        private readonly ButtonView _buttonView;
+        private readonly PlayerActionView _playerActionView;
         private readonly BattleSystemView _view;
 
-        public BattleSystemLogic(ButtonView buttonView, BattleSystemView battleSystemView)
+        public BattleSystemLogic(PlayerActionView playerActionView, BattleSystemView battleSystemView)
         {
-            this._buttonView = buttonView;
+            this._playerActionView = playerActionView;
             this._view = battleSystemView;
 
-            _buttonView.SeedSelectedButton.onClick.AddListener(SeedSelected);
-            _buttonView.FightButton.onClick.AddListener(FightButtonPressed);
-            _buttonView.UseSeedButton.onClick.AddListener(_view.UseSeedButtonPressed);
-            _buttonView.ThrowSeedButton.onClick.AddListener(_view.ThrowSeedButtonPressed);
+            _playerActionView.SeedSelectedButton.onClick.AddListener(ShowSeedDescription);
+            _playerActionView.FightButton.onClick.AddListener(FightButtonPressed);
+            _playerActionView.UseSeedButton.onClick.AddListener(_view.UseSeedButtonPressed);
+            _playerActionView.ThrowSeedButton.onClick.AddListener(_view.ThrowSeedButtonPressed);
 
             _view.OnDoneQTA.AddListener(QTADone);
         }
@@ -35,7 +35,7 @@ namespace SotongStudio
             NextTurn();
         }
 
-        private void SeedSelected()
+        private void ShowSeedDescription()
         {
             _view.ShowSeedDescription();
         }

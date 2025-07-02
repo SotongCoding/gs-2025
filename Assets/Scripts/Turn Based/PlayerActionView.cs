@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace SotongStudio
 {
-    public class ButtonView : MonoBehaviour
+    public class PlayerActionView : MonoBehaviour
     {
         public Button SeedSelectedButton;
         public Button FightButton;

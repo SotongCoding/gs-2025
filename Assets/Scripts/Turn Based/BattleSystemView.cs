@@ -41,12 +41,17 @@ namespace SotongStudio
         public void UseSeedButtonPressed()
         {
             Debug.Log("Player menggunakan seed");
-            _seedUI.SetActive(false);
+            HideSeedUI();
         }
 
         public void ThrowSeedButtonPressed()
         {
             Debug.Log("Player melempar seed");
+            HideSeedUI();
+        }
+
+        private void HideSeedUI()
+        {
             _seedUI.SetActive(false);
         }
 
@@ -63,7 +68,6 @@ namespace SotongStudio
 
         public void EnemyAttack()
         {
-            _qtaUI.SetActive(false);
             Debug.Log("Musuh menyerang");
         }
 
@@ -73,12 +77,14 @@ namespace SotongStudio
             {
                 Debug.Log("Player berhasil menyerang");
                 OnDoneQTA.Invoke();
+                _qtaUI.SetActive(false);
                 _isQTAOn = false;
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 Debug.Log("Player gagal menyerang");
                 OnDoneQTA.Invoke();
+                _qtaUI.SetActive(false);
                 _isQTAOn = false;
             }
         }
