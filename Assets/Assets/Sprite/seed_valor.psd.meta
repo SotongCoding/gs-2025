@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: ed2614568138e4e4cb5c66555ed95731
+guid: f2a636081ae65e34cb7e781bcc7cca5a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7152930139536384079
-    second: character_0
-  - first:
-      213: -5725962078152895296
-    second: character_1
+      213: 8193640951107051560
+    second: seed_valor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: character_0
+      name: seed_valor_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 700
-        height: 1080
+        width: 75
+        height: 79
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4060466010544360800000000000000
-      internalID: 7152930139536384079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character_1
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 785
-        width: 383
-        height: 274
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0c4d65ec3db4980b0800000000000000
-      internalID: -5725962078152895296
+      spriteID: 82064d38809a5b170800000000000000
+      internalID: 8193640951107051560
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8fab82d48451d174ba27df855541729a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      character_0: 7152930139536384079
-      character_1: -5725962078152895296
+      seed_valor_0: 8193640951107051560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
