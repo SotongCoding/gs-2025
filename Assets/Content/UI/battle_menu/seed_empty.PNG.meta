@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 234dc6fc84a042344ae23b4e971e9051
+guid: 2d456b9e4517316458963ae0feec9969
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1149564515793885063
-    second: 2battle_preview1_0
+      213: 2521590806720232501
+    second: seed_empty_0
+  - first:
+      213: -1547005439430689016
+    second: seed_empty_1
+  - first:
+      213: -5209901126896545613
+    second: seed_empty_2
+  - first:
+      213: 462100911485322758
+    second: seed_empty_3
+  - first:
+      213: -4361725205699174818
+    second: seed_empty_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2battle_preview1_0
+      name: seed_empty_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        y: 58
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 787d94226d214ff00800000000000000
-      internalID: 1149564515793885063
+      spriteID: 53c337f8a7d7ef220800000000000000
+      internalID: 2521590806720232501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed_empty_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 17
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ff22dcfbee78ae0800000000000000
+      internalID: -1547005439430689016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed_empty_2
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 58
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b09c604786b2b7b0800000000000000
+      internalID: -5209901126896545613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed_empty_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6068777a456b96600800000000000000
+      internalID: 462100911485322758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed_empty_4
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 0
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5ede6ae80a0873c0800000000000000
+      internalID: -4361725205699174818
       vertices: []
       indices: 
       edges: []
@@ -125,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      2battle_preview1_0: 1149564515793885063
+      seed_empty_0: 2521590806720232501
+      seed_empty_1: -1547005439430689016
+      seed_empty_2: -5209901126896545613
+      seed_empty_3: 462100911485322758
+      seed_empty_4: -4361725205699174818
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
