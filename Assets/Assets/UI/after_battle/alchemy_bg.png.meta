@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8d935c46ab46c8143962b22887c8def9
+guid: 36503073a69064240b0305ab125d01f7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6844901636748040171
-    second: Popup_flavor_0
+      213: 4868019930542997199
+    second: alchemy_bg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Popup_flavor_0
+      name: alchemy_bg_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 808
-        height: 162
+        width: 700
+        height: 550
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 518a42b2a360201a0800000000000000
-      internalID: -6844901636748040171
+      spriteID: fce798fb55eae8340800000000000000
+      internalID: 4868019930542997199
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Popup_flavor_0: -6844901636748040171
+      alchemy_bg_0: 4868019930542997199
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

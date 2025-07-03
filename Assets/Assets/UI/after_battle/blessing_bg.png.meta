@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c7a432a41f090e01299542316207b55c
+guid: 64741d3f0a7d182a2a6b3759498c7341
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7588282475895217059
-    second: move_bg _0
+      213: -8067143657631418263
+    second: blessing_bg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: move_bg _0
+      name: blessing_bg_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 910
-        height: 79
+        width: 700
+        height: 550
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3ab5e0715befe4960800000000000000
-      internalID: 7588282475895217059
+      spriteID: 96875deb59fbb0090800000000000000
+      internalID: -8067143657631418263
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      move_bg _0: 7588282475895217059
+      blessing_bg_0: -8067143657631418263
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

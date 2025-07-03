@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 36503073a69064240b0305ab125d01f7
+guid: 85907e0b3047ab90684203fab3d40f64
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4868019930542997199
-    second: alchemy_bg_0
+      213: 3670226301470541721
+    second: after_battle_bg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: alchemy_bg_0
+      name: after_battle_bg_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 710
-        height: 561
+        width: 700
+        height: 550
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fce798fb55eae8340800000000000000
-      internalID: 4868019930542997199
+      spriteID: 997827020634fe230800000000000000
+      internalID: 3670226301470541721
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      alchemy_bg_0: 4868019930542997199
+      after_battle_bg_0: 3670226301470541721
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
