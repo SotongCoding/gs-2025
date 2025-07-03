@@ -16,11 +16,6 @@ namespace SotongStudio.SharedData.PredefinedData
             return _itemList.Find(data => data.ItemId == itemId);
         }
 
-        public IEnumerable<T> GetAllItems()
-        {
-            return _itemList;
-        }
-
         #region Get Data Helper
 #if UNITY_EDITOR
         [Button]
