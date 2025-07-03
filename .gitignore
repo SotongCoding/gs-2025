@@ -59,6 +59,9 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Ignore JetBrains folders
+.idea/
+
 Assets/TextMesh Pro/Documentation
 .vscode
 *.dwlt
