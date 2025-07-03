@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d07616b141b763e40994f21c0e520f54
+guid: e170d30d872993691b3ea00a93dd9666
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5187028522292959323
-    second: btn_nextbattle_0
+      213: 1413110612265648826
+    second: btn_fight_click_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: btn_nextbattle_0
+      name: btn_fight_click_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 29
-        height: 300
+        width: 250
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5a7a8e08a09f308b0800000000000000
-      internalID: -5187028522292959323
+      spriteID: ab2cd686d906c9310800000000000000
+      internalID: 1413110612265648826
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      btn_nextbattle_0: -5187028522292959323
+      btn_fight_click_0: 1413110612265648826
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

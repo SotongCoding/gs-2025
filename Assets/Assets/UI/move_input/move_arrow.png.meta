@@ -103,9 +103,9 @@ TextureImporter:
       name: move_arrow_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 5
         y: 0
-        width: 59
+        width: 57
         height: 36
       alignment: 0
       pivot: {x: 0, y: 0}

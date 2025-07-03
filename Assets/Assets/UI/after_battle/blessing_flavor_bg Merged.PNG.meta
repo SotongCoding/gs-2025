@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8d935c46ab46c8143962b22887c8def9
+guid: 73d31ebbe4b260842b6d4ce2d0e5c69a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4014669231248366386
-    second: popup_flavor_0
+      213: 1731743355564727895
+    second: blessing_flavor_bg Merged_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: popup_flavor_0
+      name: blessing_flavor_bg Merged_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 884
-        height: 152
+        width: 238
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec420c4da970948c0800000000000000
-      internalID: -4014669231248366386
+      spriteID: 75e149e1863680810800000000000000
+      internalID: 1731743355564727895
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      popup_flavor_0: -4014669231248366386
+      blessing_flavor_bg Merged_0: 1731743355564727895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
