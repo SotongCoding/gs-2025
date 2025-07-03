@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SotongStudio
 {
@@ -12,8 +13,13 @@ namespace SotongStudio
         private float timer = 0f;                 // Timer waktu berjalan
         private bool isActive = false;            // Apakah Quick Action sedang berlangsung
         private bool isComplete = false;          // Apakah semua arah sudah diinput
+        
+        [Header("Quick Action Events")]
+        public UnityEvent onSuccess;
+        public UnityEvent onFailure;
 
-        void Update()
+
+        private void Update()
         {
             
             timer -= Time.deltaTime;
@@ -38,15 +44,15 @@ namespace SotongStudio
             if (Input.GetKeyDown(KeyCode.A))//testing
             {
                 Debug.Log("terklik");
-                StartQuickAction();
+                StartQuickAction(5f,5);
             }
             
         }
 
         // Memulai Quick Action baru
-        void StartQuickAction()
+        public void StartQuickAction(float duration, int buttonAmount)
         {
-            currentAction = new QuickActionModel(5f, 5); // Durasi 5 detik, 5 panah
+            currentAction = new QuickActionModel(duration, buttonAmount); // Durasi 5 detik, 5 panah
             currentIndex = 0;
             timer = currentAction.Duration;
             isActive = true;
@@ -57,7 +63,7 @@ namespace SotongStudio
         }
 
         // Mengecek apakah input pemain sesuai dengan arah yang dibutuhkan
-        void CheckInput()
+        private void CheckInput()
         {
             if (currentIndex >= currentAction.Directions.Count) return;
 
@@ -84,7 +90,7 @@ namespace SotongStudio
         }
 
         // Mengecek apakah tombol yang ditekan benar
-        bool IsCorrectInput(Direction dir)
+        private bool IsCorrectInput(Direction dir)
         {
             return dir switch
             {
@@ -97,16 +103,26 @@ namespace SotongStudio
         }
 
         // Mengakhiri Quick Action
-        void EndQuickAction(bool success)
+        private void EndQuickAction(bool success)
         {
             isActive = false;
             isComplete = false;
             view.HideUI();
 
             if (success)
+            {
                 Debug.Log("Quick Action Sukses!");
+                onSuccess.Invoke();
+            }
+
             else
+            {
                 Debug.Log("Quick Action Gagal!");
+                onFailure.Invoke();
+            }
+                
+            
+
         }
     }
 }
