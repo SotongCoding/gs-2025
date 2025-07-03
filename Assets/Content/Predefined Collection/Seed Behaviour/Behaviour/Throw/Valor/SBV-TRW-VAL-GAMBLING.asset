@@ -9,11 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3d3088bb89f08b439e03d24f6422285, type: 3}
-  m_Name: SBHV-VAL-STEAL
+  m_Script: {fileID: 11500000, guid: 6907e0334427a7d42a6ab8cf9ee6e36e, type: 3}
+  m_Name: SBV-TRW-VAL-GAMBLING
   m_EditorClassIdentifier: 
-  BehaviourId: SBHV-VAL-STEAL
-  _takenStatData:
+  <BehaviourId>k__BackingField: SBV-USE-VAL-GAMBLING
+  Description: 
+  _minStatData:
+    <Attack>k__BackingField: -10
+    <Defense>k__BackingField: 0
+    <Health>k__BackingField: 0
+  _maxStatData:
     <Attack>k__BackingField: 10
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0

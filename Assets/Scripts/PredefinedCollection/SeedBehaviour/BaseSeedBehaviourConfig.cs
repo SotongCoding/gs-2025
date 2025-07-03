@@ -8,9 +8,13 @@ namespace SotongStudio
         public string ItemId => BehaviourId;
 
         [field: SerializeField]
-        public string BehaviourId;
+        public string BehaviourId { get; private set; }
 
-        public abstract ISeedBehaviourLogic UseLogic { get; }
-        public abstract ISeedBehaviourLogic ThrowLogic { get; }
+        [TextArea]
+        public string Description;
+
+
+        public abstract IUseLogic UseLogic { get; }
+        public abstract IThrowLogic ThrowLogic { get; }
     }
 }

@@ -3,9 +3,14 @@ using UnityEngine;
 
 namespace SotongStudio
 {
-    public interface ISeedBehaviourLogic
+    public interface IUseLogic 
     {
         UniTask ExecuteBehaviourAsync(IUnit executor, IUnit reciver,
-                                      IBattleHelper battleHelper);       
+                                       IBattleHelper battleHelper);
+    }
+    public interface IThrowLogic
+    {
+        UniTask ExecuteBehaviourAsync(IUnit executor, IUnit reciver,
+                                      IBattleHelper battleHelper);
     }
 }

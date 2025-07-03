@@ -11,8 +11,8 @@ namespace SotongStudio
         [field: SerializeField]
         private PunishStatData _takenStat;
 
-        public override ISeedBehaviourLogic UseLogic => new GiveAndPunishLogic(_givenStat, _takenStat);
+        public override IUseLogic UseLogic => throw new System.InvalidOperationException($"Trying Use {nameof(GiveAndPunishLogic)} for Use Logic");
 
-        public override ISeedBehaviourLogic ThrowLogic => UseLogic;
+        public override IThrowLogic ThrowLogic => new GiveAndPunishLogic(_givenStat, _takenStat);
     }
 }

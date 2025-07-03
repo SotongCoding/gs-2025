@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d0239bc81a46244ad617b8b616194b, type: 3}
-  m_Name: SBHV-VAL-STRAIGHT
+  m_Script: {fileID: 11500000, guid: b3d3088bb89f08b439e03d24f6422285, type: 3}
+  m_Name: SBV-USE-WIS-STEAL
   m_EditorClassIdentifier: 
-  BehaviourId: SBHV-VAL-STRAIGHT
-  _statUpData:
-    <Attack>k__BackingField: 10
-    <Defense>k__BackingField: 0
+  <BehaviourId>k__BackingField: SBV-USE-WIS-STEAL
+  Description: 
+  _takenStatData:
+    <Attack>k__BackingField: 0
+    <Defense>k__BackingField: 10
     <Health>k__BackingField: 0

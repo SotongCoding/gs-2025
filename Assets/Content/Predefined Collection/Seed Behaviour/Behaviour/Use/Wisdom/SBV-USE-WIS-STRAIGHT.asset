@@ -9,15 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6907e0334427a7d42a6ab8cf9ee6e36e, type: 3}
-  m_Name: SBHV-WIS-GAMBLING
+  m_Script: {fileID: 11500000, guid: f6d0239bc81a46244ad617b8b616194b, type: 3}
+  m_Name: SBV-USE-WIS-STRAIGHT
   m_EditorClassIdentifier: 
-  BehaviourId: SBHV-LIF-GAMBLING
-  _minStatData:
-    <Attack>k__BackingField: 0
-    <Defense>k__BackingField: -10
-    <Health>k__BackingField: 0
-  _maxStatData:
+  <BehaviourId>k__BackingField: SBV-USE-WIS-STRAIGHT
+  Description: 
+  _statUpData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 10
     <Health>k__BackingField: 0

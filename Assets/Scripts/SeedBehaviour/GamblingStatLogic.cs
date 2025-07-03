@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SotongStudio
 {
-    public class GamblingStatLogic : ISeedBehaviourLogic
+    public class GamblingStatLogic : IUseLogic, IThrowLogic
     {
         private GamblingMinStatData _minStatData { get; }
         private GamblingMaxStatData _maxStatData { get; }
@@ -14,7 +14,12 @@ namespace SotongStudio
             _maxStatData = maxStatData;
         }
 
-        public UniTask ExecuteBehaviourAsync(IUnit executor, IUnit reciver, IBattleHelper battleHelper)
+        UniTask IUseLogic.ExecuteBehaviourAsync(IUnit executor, IUnit reciver, IBattleHelper battleHelper)
+        {
+            return UniTask.CompletedTask;
+        }
+
+        UniTask IThrowLogic.ExecuteBehaviourAsync(IUnit executor, IUnit reciver, IBattleHelper battleHelper)
         {
             return UniTask.CompletedTask;
         }

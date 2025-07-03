@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SotongStudio
 {
-    public class StraightStatUpLogic : ISeedBehaviourLogic
+    public class StraightStatUpLogic : IUseLogic, IThrowLogic
     {
         private StraightStatUpData _statUpData;
 
@@ -12,13 +12,10 @@ namespace SotongStudio
             _statUpData = statUpData;
         }
 
+        // Ganti Stat Langsung
         public UniTask ExecuteBehaviourAsync(IUnit executor, IUnit reciver, IBattleHelper battleHelper)
         {
             battleHelper.AddUnitStatus(executor, _statUpData);
-
-            // play animasi jika ada
-            // Kasih visual effect
-            // play sound effect
 
             return UniTask.CompletedTask;
         }

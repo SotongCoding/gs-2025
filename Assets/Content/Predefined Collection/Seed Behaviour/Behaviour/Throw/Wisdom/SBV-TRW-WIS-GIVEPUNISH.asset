@@ -9,11 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d0239bc81a46244ad617b8b616194b, type: 3}
-  m_Name: SBHV-WIS-STRAIGHT
+  m_Script: {fileID: 11500000, guid: 3ebaff66708afb44281a0390387b1944, type: 3}
+  m_Name: SBV-TRW-WIS-GIVEPUNISH
   m_EditorClassIdentifier: 
-  BehaviourId: SBHV-WIS-STRAIGHT
-  _statUpData:
+  <BehaviourId>k__BackingField: 
+  Description: 
+  _givenStat:
     <Attack>k__BackingField: 0
-    <Defense>k__BackingField: 10
+    <Defense>k__BackingField: 0
+    <Health>k__BackingField: 0
+  _takenStat:
+    <Attack>k__BackingField: 0
+    <Defense>k__BackingField: 0
     <Health>k__BackingField: 0

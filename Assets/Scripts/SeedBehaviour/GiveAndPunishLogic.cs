@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SotongStudio
 {
-    public class GiveAndPunishLogic : ISeedBehaviourLogic
+    public class GiveAndPunishLogic : IThrowLogic
     {
 
         private readonly GivenStatData _givenStat;
@@ -15,7 +15,7 @@ namespace SotongStudio
             _takenStat = takenStat;
         }
 
-        public UniTask ExecuteBehaviourAsync(IUnit executor, IUnit reciver, IBattleHelper battleHelper)
+        UniTask IThrowLogic.ExecuteBehaviourAsync(IUnit executor, IUnit reciver, IBattleHelper battleHelper)
         {
             return UniTask.CompletedTask;
         }

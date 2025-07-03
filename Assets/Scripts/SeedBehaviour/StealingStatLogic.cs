@@ -3,11 +3,12 @@ using UnityEngine;
 
 namespace SotongStudio
 {
-    public class StealingStatLogic : ISeedBehaviourLogic
+    public class StealingStatLogic : IUseLogic
     {
         private readonly StealedStatData _stealedStat;
 
-        public UniTask ExecuteBehaviourAsync(IUnit executor, IUnit reciver, IBattleHelper battleHelper)
+        //Ambil Stat, kasih ke Unit
+        UniTask IUseLogic.ExecuteBehaviourAsync(IUnit executor, IUnit reciver, IBattleHelper battleHelper)
         {
             return UniTask.CompletedTask;
         }

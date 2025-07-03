@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace SotongStudio
@@ -8,8 +7,7 @@ namespace SotongStudio
     {
         [field: SerializeField]
         private StealedStatData _takenStatData;
-        public override ISeedBehaviourLogic UseLogic => new StealingStatLogic(_takenStatData);
-
-        public override ISeedBehaviourLogic ThrowLogic => UseLogic;
+        public override IUseLogic UseLogic => new StealingStatLogic(_takenStatData);
+        public override IThrowLogic ThrowLogic => throw new System.InvalidOperationException($"Trying Use {nameof(StealingStatLogic)} for Throw Logic");
     }
 }

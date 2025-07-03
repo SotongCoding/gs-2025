@@ -7,8 +7,7 @@ namespace SotongStudio
     {
         [field: SerializeField]
         private StraightStatUpData _statUpData;
-        public override ISeedBehaviourLogic UseLogic => new StraightStatUpLogic(_statUpData);
-
-        public override ISeedBehaviourLogic ThrowLogic => UseLogic;
+        public override IUseLogic UseLogic => new StraightStatUpLogic(_statUpData);
+        public override IThrowLogic ThrowLogic => new StraightStatUpLogic(_statUpData);
     }
 }
