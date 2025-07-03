@@ -15,8 +15,11 @@ namespace SotongStudio
             _takenStat = takenStat;
         }
 
-        UniTask IThrowLogic.ExecuteBehaviourAsync(IUnit executor, IUnit reciver, IBattleHelper battleHelper)
+        UniTask IThrowLogic.ExecuteBehaviourAsync(IBattleHelper battleHelper)
         {
+            battleHelper.AddStatusToEnemy(_givenStat);
+            battleHelper.AddStatusToEnemy(_takenStat);
+
             return UniTask.CompletedTask;
         }
     }

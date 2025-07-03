@@ -21,11 +21,11 @@ namespace SotongStudio
         public SeedBlessingData BlessingData { get; private set; }
 
 
-        //[field: SerializeField]
-        //public SeedUseBehaviour[] UseBehaviours { get; private set; }
+        [field: SerializeField]
+        public string UseBehavioursIds { get; private set; }
 
-        //[field: SerializeField]
-        //public SeedThrowBehaviour[] ThrowBehaviours { get; private set; }
+        [field: SerializeField]
+        public string ThrowBehavioursIds { get; private set; }
     }
 
     [System.Serializable]
@@ -64,14 +64,14 @@ namespace SotongStudio
         [field: SerializeField]
         public int Health { get; private set; }
 
-        [field: SerializeField]
-        public int PercentageAttack { get; private set; }
+        //[field: SerializeField]
+        //public int PercentageAttack { get; private set; }
 
-        [field: SerializeField]
-        public int PercentageDefense { get; private set; }
+        //[field: SerializeField]
+        //public int PercentageDefense { get; private set; }
 
-        [field: SerializeField]
-        public int PercentageHealth { get; private set; }
+        //[field: SerializeField]
+        //public int PercentageHealth { get; private set; }
     }
 
     public enum SeedType

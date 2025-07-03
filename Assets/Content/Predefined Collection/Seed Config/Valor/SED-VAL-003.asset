@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b13b6d1d9690354d8dd644db20c5c6d, type: 3}
-  m_Name: SDC-LIF-001
+  m_Name: SED-VAL-003
   m_EditorClassIdentifier: 
-  SeedId: SEED-001
+  SeedId: SED-VAL-003
   <InfoData>k__BackingField:
-    <SeedName>k__BackingField: Valor 1
+    <SeedName>k__BackingField: Seed of Valor 3
     <SeedType>k__BackingField: 0
   <VisualData>k__BackingField:
     <FirtsPart>k__BackingField: {fileID: 0}
@@ -24,6 +24,5 @@ MonoBehaviour:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0
-    <PercentageAttack>k__BackingField: 0
-    <PercentageDefense>k__BackingField: 0
-    <PercentageHealth>k__BackingField: 0
+  <UseBehavioursIds>k__BackingField: SBV-USE-VAL-GAMBLING
+  <ThrowBehavioursIds>k__BackingField: SBV-TRW-VAL-GAMBLING

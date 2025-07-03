@@ -12,11 +12,15 @@ namespace SotongStudio
             _statUpData = statUpData;
         }
 
-        // Ganti Stat Langsung
-        public UniTask ExecuteBehaviourAsync(IUnit executor, IUnit reciver, IBattleHelper battleHelper)
+        UniTask IUseLogic.ExecuteBehaviourAsync(IBattleHelper battleHelper)
         {
-            battleHelper.AddUnitStatus(executor, _statUpData);
+            battleHelper.AddStatusToCharacter(_statUpData);
+            return UniTask.CompletedTask;
+        }
 
+        UniTask IThrowLogic.ExecuteBehaviourAsync(IBattleHelper battleHelper)
+        {
+            battleHelper.AddStatusToEnemy(_statUpData);
             return UniTask.CompletedTask;
         }
     }

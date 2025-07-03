@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d3088bb89f08b439e03d24f6422285, type: 3}
   m_Name: SBV-USE-VAL-STEAL
   m_EditorClassIdentifier: 
-  <BehaviourId>k__BackingField: SBV-USE-VAL-STEAL
+  BehaviourId: SBV-USE-VAL-STEAL
   Description: 
-  _takenStatData:
+  _stealedStatData:
+    <Attack>k__BackingField: -10
+    <Defense>k__BackingField: 0
+    <Health>k__BackingField: 0
+  _earnStatData:
     <Attack>k__BackingField: 10
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0

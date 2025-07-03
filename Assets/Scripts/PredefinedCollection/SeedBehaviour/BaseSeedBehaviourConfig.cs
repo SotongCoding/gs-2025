@@ -8,7 +8,7 @@ namespace SotongStudio
         public string ItemId => BehaviourId;
 
         [field: SerializeField]
-        public string BehaviourId { get; private set; }
+        private string BehaviourId;
 
         [TextArea]
         public string Description;

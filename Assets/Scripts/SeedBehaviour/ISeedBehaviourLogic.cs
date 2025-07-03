@@ -5,12 +5,10 @@ namespace SotongStudio
 {
     public interface IUseLogic 
     {
-        UniTask ExecuteBehaviourAsync(IUnit executor, IUnit reciver,
-                                       IBattleHelper battleHelper);
+        UniTask ExecuteBehaviourAsync(IBattleHelper battleHelper);
     }
     public interface IThrowLogic
     {
-        UniTask ExecuteBehaviourAsync(IUnit executor, IUnit reciver,
-                                      IBattleHelper battleHelper);
+        UniTask ExecuteBehaviourAsync(IBattleHelper battleHelper);
     }
 }

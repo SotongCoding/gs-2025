@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace SotongStudio
 {
     public interface IBasicStatusData
@@ -14,7 +16,7 @@ namespace SotongStudio
         int PercentageDefense { get; }
         int PercentageHealth { get; }
     }
-    public interface IStatusData : IBasicStatusData, ISpecialStatusData
+    public interface IStatusData : IBasicStatusData
     {
 
 

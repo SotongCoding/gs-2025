@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d0239bc81a46244ad617b8b616194b, type: 3}
   m_Name: SBV-TRW-VAL-STRAIGHT
   m_EditorClassIdentifier: 
-  <BehaviourId>k__BackingField: SBV-USE-VAL-STRAIGHT
+  BehaviourId: SBV-TRW-VAL-STRAIGHT
   Description: 
   _statUpData:
-    <Attack>k__BackingField: 10
+    <Attack>k__BackingField: -10
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebaff66708afb44281a0390387b1944, type: 3}
   m_Name: SBV-TRW-VAL-GIVEPUNISH
   m_EditorClassIdentifier: 
-  <BehaviourId>k__BackingField: 
+  BehaviourId: SBV-TRW-VAL-GIVEPUNISH
   Description: 
   _givenStat:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0
-    <Health>k__BackingField: 0
+    <Health>k__BackingField: 100
   _takenStat:
-    <Attack>k__BackingField: 0
+    <Attack>k__BackingField: -10
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0

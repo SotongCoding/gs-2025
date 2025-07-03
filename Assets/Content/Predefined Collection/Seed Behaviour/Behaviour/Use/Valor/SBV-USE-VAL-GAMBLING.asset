@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6907e0334427a7d42a6ab8cf9ee6e36e, type: 3}
   m_Name: SBV-USE-VAL-GAMBLING
   m_EditorClassIdentifier: 
-  <BehaviourId>k__BackingField: SBV-USE-VAL-GAMBLING
+  BehaviourId: SBV-USE-VAL-GAMBLING
   Description: 
   _minStatData:
-    <Attack>k__BackingField: -10
+    <Attack>k__BackingField: -5
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0
   _maxStatData:
-    <Attack>k__BackingField: 10
+    <Attack>k__BackingField: 15
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d0239bc81a46244ad617b8b616194b, type: 3}
   m_Name: SBV-TRW-WIS-STRAIGHT
   m_EditorClassIdentifier: 
-  <BehaviourId>k__BackingField: SBV-USE-WIS-STRAIGHT
+  BehaviourId: SBV-TRW-WIS-STRAIGHT
   Description: 
   _statUpData:
     <Attack>k__BackingField: 0
