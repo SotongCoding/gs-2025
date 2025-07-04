@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SBV-USE-LIF-STRAIGHT
   m_EditorClassIdentifier: 
   BehaviourId: SBV-USE-LIF-STRAIGHT
-  Description: 
+  Description: Use Life Straight
   _statUpData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0

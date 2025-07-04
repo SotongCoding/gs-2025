@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SBV-TRW-VAL-GAMBLING
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-VAL-GAMBLING
-  Description: 
+  Description: Throw Valor Gambling
   _minStatData:
     <Attack>k__BackingField: -15
     <Defense>k__BackingField: 0

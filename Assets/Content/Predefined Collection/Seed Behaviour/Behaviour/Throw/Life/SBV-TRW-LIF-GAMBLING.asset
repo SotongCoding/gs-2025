@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SBV-TRW-LIF-GAMBLING
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-LIF-GAMBLING
-  Description: 
+  Description: Gambling Throw Life
   _minStatData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0

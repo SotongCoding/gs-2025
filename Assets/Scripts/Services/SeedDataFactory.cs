@@ -24,8 +24,8 @@ namespace SotongStudio
                                 seedConfig.VisualData,
                                 seedConfig.BlessingData,
 
-                                Array.Empty<string>(),
-                                Array.Empty<string>());
+                                new[] { seedConfig.UseBehavioursIds },
+                                new[] { seedConfig.ThrowBehavioursIds });
         }
     }
 }

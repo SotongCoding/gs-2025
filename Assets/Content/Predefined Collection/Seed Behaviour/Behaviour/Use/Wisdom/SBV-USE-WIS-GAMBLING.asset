@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SBV-USE-WIS-GAMBLING
   m_EditorClassIdentifier: 
   BehaviourId: SBV-USE-WIS-GAMBLING
-  Description: 
+  Description: Use Wisdom Gambling
   _minStatData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: -5

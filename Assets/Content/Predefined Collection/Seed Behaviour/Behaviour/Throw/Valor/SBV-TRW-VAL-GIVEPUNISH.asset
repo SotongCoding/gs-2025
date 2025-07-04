@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SBV-TRW-VAL-GIVEPUNISH
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-VAL-GIVEPUNISH
-  Description: 
+  Description: Throw Valor Give Punish
   _givenStat:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0

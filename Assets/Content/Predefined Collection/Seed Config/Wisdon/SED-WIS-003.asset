@@ -17,9 +17,9 @@ MonoBehaviour:
     <SeedName>k__BackingField: Seed of Wisdom 3
     <SeedType>k__BackingField: 1
   <VisualData>k__BackingField:
-    <FirtsPart>k__BackingField: {fileID: 0}
-    <SecondPart>k__BackingField: {fileID: 0}
-    <ThirdPart>k__BackingField: {fileID: 0}
+    <TopPart>k__BackingField: 1
+    <MiddlePart>k__BackingField: 1
+    <BottomPart>k__BackingField: 1
   <BlessingData>k__BackingField:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0

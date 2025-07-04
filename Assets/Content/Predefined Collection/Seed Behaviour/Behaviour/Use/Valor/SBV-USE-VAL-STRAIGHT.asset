@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SBV-USE-VAL-STRAIGHT
   m_EditorClassIdentifier: 
   BehaviourId: SBV-USE-VAL-STRAIGHT
-  Description: 
+  Description: Use Valor Straight
   _statUpData:
     <Attack>k__BackingField: 10
     <Defense>k__BackingField: 0

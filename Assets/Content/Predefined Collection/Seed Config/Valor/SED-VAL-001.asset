@@ -17,9 +17,9 @@ MonoBehaviour:
     <SeedName>k__BackingField: Seed of Valor 1
     <SeedType>k__BackingField: 0
   <VisualData>k__BackingField:
-    <FirtsPart>k__BackingField: {fileID: 0}
-    <SecondPart>k__BackingField: {fileID: 0}
-    <ThirdPart>k__BackingField: {fileID: 0}
+    <TopPart>k__BackingField: 0
+    <MiddlePart>k__BackingField: 0
+    <BottomPart>k__BackingField: 0
   <BlessingData>k__BackingField:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0

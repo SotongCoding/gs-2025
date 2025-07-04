@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SBV-TRW-LIF-STRAIGHT
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-LIF-STRAIGHT
-  Description: 
+  Description: Throw Straight Life
   _statUpData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0

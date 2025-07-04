@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SBV-TRW-VAL-STRAIGHT
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-VAL-STRAIGHT
-  Description: 
+  Description: Throw Valor Straight
   _statUpData:
     <Attack>k__BackingField: -10
     <Defense>k__BackingField: 0

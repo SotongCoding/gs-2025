@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SBV-USE-LIF-GAMBLING
   m_EditorClassIdentifier: 
   BehaviourId: SBV-USE-LIF-GAMBLING
-  Description: 
+  Description: Use Life Gambling
   _minStatData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0

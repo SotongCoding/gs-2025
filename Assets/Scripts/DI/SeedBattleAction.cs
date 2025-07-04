@@ -4,15 +4,18 @@ using VContainer;
 
 namespace SotongStudio
 {
-    public class SeedInventoryInstaller : ScopeInstallHelper
+    public class SeedBattleAction : ScopeInstallHelper
     {
         [SerializeField] private List<SeedInventoryItemLogic> _itemLogics;
+        [SerializeField] private SeedInfoView _infoView;
 
         public override void Install(IContainerBuilder builder)
         {
             builder.Register<SeedInventoryLogic>(Lifetime.Singleton).As<ISeedInventoryLogic>()
                      .WithParameter<IReadOnlyList<ISeedInventoryItemLogic>>(_itemLogics);
-                  
+
+            builder.Register<SeedInfoLogic>(Lifetime.Singleton).As<ISeedInfoLogic>()
+                .WithParameter<ISeedInfoView>(_infoView);
         }
     }
 }

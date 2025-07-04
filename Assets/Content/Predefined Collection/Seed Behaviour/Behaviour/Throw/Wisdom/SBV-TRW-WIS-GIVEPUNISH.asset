@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SBV-TRW-WIS-GIVEPUNISH
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-WIS-GIVEPUNISH
-  Description: 
+  Description: Throw Wisdom Give Punish
   _givenStat:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0

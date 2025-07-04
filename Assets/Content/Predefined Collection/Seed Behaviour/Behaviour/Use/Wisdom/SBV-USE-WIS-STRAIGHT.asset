@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SBV-USE-WIS-STRAIGHT
   m_EditorClassIdentifier: 
   BehaviourId: SBV-USE-WIS-STRAIGHT
-  Description: 
+  Description: Use Wisdom Straight
   _statUpData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 10

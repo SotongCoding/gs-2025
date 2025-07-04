@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SBV-TRW-WIS-GAMBLING
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-WIS-GAMBLING
-  Description: 
+  Description: Throw Wisdom Gambling
   _minStatData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: -15

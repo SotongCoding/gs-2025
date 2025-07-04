@@ -14,7 +14,7 @@ namespace SotongStudio
         private IBattleHelper _battleHelper;
         private string[] _noneOwned;
         private ISeedInventoryLogic _inventoryLogic;
-
+        private ISeedInfoLogic _infoLogic;
         [Header("Test Behaviour")]
         [SerializeField]
         private SeedBehaviourCollection _seedBehaviourCollection;
@@ -37,16 +37,21 @@ namespace SotongStudio
             _noneOwned = seedDataService.GetNonOwnedRegularSeedIds();
         }
         [Inject]
-        private void OtherInject(ISeedInventoryLogic inventoryLogic)
+        private void BattleActionInject(ISeedInventoryLogic inventoryLogic,
+                                        ISeedInfoLogic infoLogic)
         {
             _inventoryLogic = inventoryLogic;
+            _infoLogic = infoLogic;
 
             inventoryLogic.OnSelectSeed.AddListener(SelectSeed);
         }
 
+
+
         private void SelectSeed(ISeedData arg0)
         {
             Debug.Log($"Player Select Seed {arg0}");
+            _infoLogic.ShowSeedInfo(arg0);
         }
 
         [Button]
@@ -62,7 +67,9 @@ namespace SotongStudio
         [Button]
         public void TestAddSeedToInventory()
         {
-            _seedDataService.AddRegularSeedToInventory("SEED-001");
+            _seedDataService.AddRegularSeedToInventory("SED-LF-001");
+            _seedDataService.AddRegularSeedToInventory("SED-VAL-002");
+            _seedDataService.AddRegularSeedToInventory("SED-WIS-003");
 
             Debug.Log("Added Seed");
         }
@@ -213,5 +220,7 @@ namespace SotongStudio
         {
             _inventoryLogic.UpdateInventoryList();
         }
+
+        
     }
 }
