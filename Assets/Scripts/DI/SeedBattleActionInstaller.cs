@@ -4,7 +4,7 @@ using VContainer;
 
 namespace SotongStudio
 {
-    public class SeedBattleAction : ScopeInstallHelper
+    public class SeedBattleActionInstaller : ScopeInstallHelper
     {
         [SerializeField] private List<SeedInventoryItemLogic> _itemLogics;
         [SerializeField] private SeedInfoView _infoView;
@@ -16,6 +16,8 @@ namespace SotongStudio
 
             builder.Register<SeedInfoLogic>(Lifetime.Singleton).As<ISeedInfoLogic>()
                 .WithParameter<ISeedInfoView>(_infoView);
+
+            builder.Register<PlayerBattleActionController>(Lifetime.Singleton).As<IPlayerBattleActionController>();
         }
     }
 }

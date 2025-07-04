@@ -1,15 +1,21 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SotongStudio
 {
     public interface ISeedInfoLogic
     {
+        UnityEvent OnUseSeed { get; }
+        UnityEvent OnThrowSeed { get; }
         void ShowSeedInfo(ISeedData seedData);
     }
     public class SeedInfoLogic : ISeedInfoLogic
     {
         private readonly ISeedInfoView _view;
         private readonly SeedBehaviourCollection _seedBehaviourCollection;
+
+        public UnityEvent OnUseSeed => _view.OnUseSeed;
+        public UnityEvent OnThrowSeed => _view.OnThrowSeed;
 
         public SeedInfoLogic(ISeedInfoView view,
                              SeedBehaviourCollection seedBehaviourCollection)
