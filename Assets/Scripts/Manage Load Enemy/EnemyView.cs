@@ -5,17 +5,20 @@ using UnityEngine;
 
 namespace SotongStudio
 {
-    public class Enemy : MonoBehaviour
+    public class EnemyView : MonoBehaviour
     {
         [SerializeField] private EnemyConfigData _enemyConfigData;
 
         private int _currentHealth;
+        private int _currentAttack;
+        private int _currentDeffense;
 
         public void InitializeEnemy(EnemyConfigData data)
         {
             _enemyConfigData = data;
             _currentHealth = _enemyConfigData.StatusData.Health;
-            Debug.Log($"{_enemyConfigData.InfoData.EnemyName} appear!");
+            _currentAttack = _enemyConfigData.StatusData.Attack;
+            _currentDeffense = _enemyConfigData.StatusData.Defense;
         }
 
         public void TakeDamage(int amount)
