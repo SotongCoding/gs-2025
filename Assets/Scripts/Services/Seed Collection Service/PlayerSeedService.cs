@@ -6,23 +6,24 @@ using System.Linq;
 
 namespace SotongStudio
 {
-    public interface IPlayerSeedDataService
+    public interface IPlayerSeedService
     {
-        void AddCollectionSeedToInventory(string seedId);
-        string[] GetNonOwnedSeeds();
-        string[] GetOwnedSeeds();
+        void AddRegularSeedToInventory(string seedId);
+        void AddCombinedSeedToInventory(ISeedData combinedSeed);
+        string[] GetNonOwnedRegularSeedIds();
+        IEnumerable<ISeedData> GetOwnedSeeds();
     }
 
-    public class PlayerSeedDataService : IPlayerSeedDataService
+    public class PlayerSeedService : IPlayerSeedService
     {
         private readonly SeedConfigCollection _seedCollection;
         private readonly ICharacterSeedInventoryProvider _seedInventory;
         private readonly ICharacterSeedInventoryProviderUpdate _seedInventoryUpdate;
         private readonly ISeedDataFactory _seedDataFactory;
 
-        private List<string> _seedRecord = new();
+        private List<string> _regularSeedRecord = new();
 
-        public PlayerSeedDataService(SeedConfigCollection seedCollection,
+        public PlayerSeedService(SeedConfigCollection seedCollection,
                                      ICharacterSeedInventoryProvider seedInventory,
                                      ICharacterSeedInventoryProviderUpdate seedInventoryUpdate,
                                      ISeedDataFactory seedDataFactory)
@@ -34,27 +35,32 @@ namespace SotongStudio
 
         }
 
-        public void AddCollectionSeedToInventory(string seedId)
+        public void AddCombinedSeedToInventory(ISeedData combinedSeed)
         {
-            if (_seedRecord.Contains(seedId)) throw new System.InvalidOperationException("Trying Add Already added Collection Seed");
-
-            var seedInvenData = _seedDataFactory.CreateSeedInventoryData(seedId);
-            _seedInventoryUpdate.AddSeed(seedInvenData);
-
-            _seedRecord.Add(seedId);
+            _seedInventoryUpdate.AddSeed(combinedSeed);
         }
 
-        public string[] GetNonOwnedSeeds()
+        public void AddRegularSeedToInventory(string seedId)
+        {
+            if (_regularSeedRecord.Contains(seedId)) throw new System.InvalidOperationException("Trying Add Already added Collection Seed");
+
+            var seedInvenData = _seedDataFactory.CreateSeedInventoryDataFromRegularId(seedId);
+            _seedInventoryUpdate.AddSeed(seedInvenData);
+
+            _regularSeedRecord.Add(seedId);
+        }
+
+        public string[] GetNonOwnedRegularSeedIds()
         {
             return _seedCollection.GetAllItems()
                    .Select(collectionData => collectionData.ItemId)
-                   .Except(_seedRecord)
+                   .Except(_regularSeedRecord)
                    .ToArray();
         }
 
-        public string[] GetOwnedSeeds()
+        public IEnumerable<ISeedData> GetOwnedSeeds()
         {
-            return _seedInventory.GetAllOwnedSeedsIds().ToArray();
+            return _seedInventory.GetAllOwnedSeeds();
         }
     }
 }

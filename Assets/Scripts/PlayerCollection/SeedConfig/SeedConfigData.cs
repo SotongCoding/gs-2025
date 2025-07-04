@@ -43,13 +43,20 @@ namespace SotongStudio
     public class SeedVisualData
     {
         [field: SerializeField]
-        public Sprite FirtsPart { get; private set; }
+        public SeedType TopPart { get; private set; }
 
         [field: SerializeField]
-        public Sprite SecondPart { get; private set; }
+        public SeedType MiddlePart { get; private set; }
 
         [field: SerializeField]
-        public Sprite ThirdPart { get; private set; }
+        public SeedType BottomPart { get; private set; }
+
+        public SeedVisualData(SeedType topPart, SeedType middlePart, SeedType bottomPart)
+        {
+            TopPart = topPart;
+            MiddlePart = middlePart;
+            BottomPart = bottomPart;
+        }
     }
 
     [System.Serializable]
