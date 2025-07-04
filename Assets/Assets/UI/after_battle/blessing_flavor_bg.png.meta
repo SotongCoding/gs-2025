@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 85907e0b3047ab90684203fab3d40f64
+guid: 54a9d4b50da44303d8a9bcf0b612ebfe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3670226301470541721
-    second: after_battle_bg_0
+      213: -7852448763660233575
+    second: blessing_flavor_bg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: after_battle_bg_0
+      name: blessing_flavor_bg_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 710
-        height: 561
+        width: 230
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 997827020634fe230800000000000000
-      internalID: 3670226301470541721
+      spriteID: 9949319147f760390800000000000000
+      internalID: -7852448763660233575
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      after_battle_bg_0: 3670226301470541721
+      blessing_flavor_bg_0: -7852448763660233575
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
