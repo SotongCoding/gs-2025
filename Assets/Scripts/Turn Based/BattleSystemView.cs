@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using NUnit.Framework;
 using System;
 using System.Collections;
@@ -15,6 +16,21 @@ namespace SotongStudio
         public UnityEvent OnDoneQTA { get; private set; } = new();
 
         private bool _isQTAOn = false;
+
+        //===========================================================
+        public UnityEvent OnDefeatEnemy { get; private set; } = new();
+        public UnityEvent OnFinishAfterBattleActivity { get; private set; } = new();
+        [Button]
+        private void DefeatEnemy()
+        {
+            OnDefeatEnemy.Invoke();
+        }
+        [Button]
+        private void FinishAfterBattleActivity()
+        {
+            OnFinishAfterBattleActivity.Invoke();
+        }
+        //===========================================================
 
         private void Update()
         {

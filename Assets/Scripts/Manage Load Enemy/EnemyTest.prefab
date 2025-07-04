@@ -394,6 +394,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyConfigData: {fileID: 11400000, guid: 5dab8e94925704541970bd2cb68612ab, type: 2}
+  _enemyParts:
+  - {fileID: 6997919449153587537}
+  - {fileID: 8571126786386337828}
+  - {fileID: 4615062768608726624}
+  - {fileID: 235801673490555950}
+  - {fileID: 4302001513921292757}
+  - {fileID: 2381800485491371089}
+  - {fileID: 2781385436882412444}
+  - {fileID: 8344516324680543013}
+  - {fileID: 805342588552294454}
 --- !u!1 &4302001513921292757
 GameObject:
   m_ObjectHideFlags: 0

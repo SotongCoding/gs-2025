@@ -1,69 +1,43 @@
 using NaughtyAttributes;
 using System;
 using UnityEngine;
+using VContainer.Unity;
 
 namespace SotongStudio
 {
-    public class LevelManager : MonoBehaviour
+    public class LevelManager : IStartable
     {
-        [SerializeField] private EnemyConfigData _enemyConfigData;
-        [SerializeField] private Vector3 _position;
+        private readonly EnemyConfigCollection _enemyConfigCollection;
+        private readonly BattleSystemView _battleSystemView;
+
+        private EnemyConfigData _enemyConfigData;
         private GameObject _instanceObject;
         private int _level = 1;
-        private int _index;
 
-        private void Start()
+        private EnemyView _enemyView;
+
+        public LevelManager(EnemyConfigCollection enemyConfigCollection, BattleSystemView battleSystemView)
+        {
+            this._enemyConfigCollection = enemyConfigCollection;
+            this._battleSystemView = battleSystemView;
+
+            _battleSystemView.OnDefeatEnemy.AddListener(DefeatEnemy);
+            _battleSystemView.OnFinishAfterBattleActivity.AddListener(FinishAfterBattleActivity);
+        }
+
+        void IStartable.Start()
         {
             Debug.Log($"Level {_level}");
             InisiateEnemy();
-            SetEnemyParts();
+            _enemyView.SetEnemyParts(_level);
+            _enemyConfigCollection.GetItem($"{_level}");
         }
 
         public void InisiateEnemy()
         {
-            _instanceObject = Instantiate(_enemyConfigData.VisualData.VisualPart, _position, Quaternion.identity);
-        }
-
-        public void SetEnemyParts()
-        {
-            _index = 8;
-            while (_index > _level-1)
-            {
-                Transform parts = _instanceObject.transform.Find($"Visual Root/{_index}");
-                if (parts != null)
-                {
-                    parts.gameObject.SetActive(false);
-                }
-                _index--;
-            }
-        }
-
-        private void HideEnemy()
-        {
-            _index = 0;
-            while (_index <= _level-1)
-            {
-                Transform parts = _instanceObject.transform.Find($"Visual Root/{_index}");
-                if (parts != null)
-                {
-                    parts.gameObject.SetActive(false);
-                }
-                _index++;
-            }
-        }
-
-        private void ShowEnemy()
-        {
-            _index = 0;
-            while (_index <= _level-1)
-            {
-                Transform parts = _instanceObject.transform.Find($"Visual Root/{_index}");
-                if (parts != null)
-                {
-                    parts.gameObject.SetActive(true);
-                }
-                _index++;
-            }
+            _enemyConfigData = _enemyConfigCollection.GetItem($"{_level}");
+            _instanceObject = UnityEngine.Object.Instantiate(_enemyConfigData.VisualData.VisualPart, Vector3.zero, Quaternion.identity);
+            _enemyView = _instanceObject.GetComponent<EnemyView>();
         }
 
         private void IncreaseLevel()
@@ -121,20 +95,17 @@ namespace SotongStudio
             CombineSeed();
         }
 
-        [Button]
         private void DefeatEnemy()
         {
-            HideEnemy();
+            _enemyView.HideEnemy(_level);
             AfterBattleActivity();
         }
 
-        [Button]
         private void FinishAfterBattleActivity()
         {
             IncreaseLevel();
             Debug.Log($"Level {_level}");
-            ShowEnemy();
-            //SetEnemyParts();
+            _enemyView.ShowEnemy(_level);
         }
     }
 }
