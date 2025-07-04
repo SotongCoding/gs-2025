@@ -34,6 +34,7 @@ namespace SotongStudio
         [Button]
         private void FindInstaller()
         {
+            Debug.Log("Find Installer");
             gameObject.GetComponentsInChildren<ScopeInstallHelper>(_installers);
         }
 #endif
