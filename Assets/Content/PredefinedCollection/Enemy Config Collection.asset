@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1903cb05a5226ab44837613f033b476b, type: 3}
+  m_Name: Enemy Config Collection
+  m_EditorClassIdentifier: 
+  _itemList:
+  - {fileID: 11400000, guid: 5dab8e94925704541970bd2cb68612ab, type: 2}
+  - {fileID: 11400000, guid: 2b706c15883dfb94b9c187dd07937881, type: 2}
+  - {fileID: 11400000, guid: ecb49062d30187141afd5364ce4cd4fa, type: 2}
+  - {fileID: 11400000, guid: a7f8bb9582ed88243b74b2af7c75e511, type: 2}
+  - {fileID: 11400000, guid: 0c4be497c5c6165409a0a841fe1c35f6, type: 2}
+  - {fileID: 11400000, guid: 4804c1278f26e8f4e93afc99dc7160ae, type: 2}
+  - {fileID: 11400000, guid: bbf064d990b81664b9160138427e06b0, type: 2}
+  - {fileID: 11400000, guid: 758ad650edddfaa47b2ccb0be2add1c1, type: 2}
+  - {fileID: 11400000, guid: a1a0aac8b0d8c1141868f9418b696d5f, type: 2}
