@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using NaughtyAttributes;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -25,7 +26,6 @@ namespace SotongStudio
 
         void IStartable.Start()
         {
-            Debug.Log("Testing");
             _view.SetupBattleVisual();
         }
 
