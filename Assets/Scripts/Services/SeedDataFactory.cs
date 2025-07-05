@@ -42,8 +42,19 @@ namespace SotongStudio
             throwBehaviours.AddRange(secondSeed?.ThrowBehaviourIds ?? Array.Empty<string>());
             throwBehaviours.AddRange(thirdSeed?.ThrowBehaviourIds ?? Array.Empty<string>());
 
+            SeedInfoData seedInfo = firstSeed.InfoData;
+
+            if (secondSeed != null)
+            {
+                seedInfo = new(firstSeed.InfoData.SeedType, "Blessed Treant Seed");
+            }
+            if (thirdSeed != null)
+            {
+                seedInfo = new(firstSeed.InfoData.SeedType, "Ancient Treant Seed");
+            }
+
             return new CombinedSeed(firstSeed.SeedId + secondSeed?.SeedId + thirdSeed?.SeedId,
-                                        firstSeed.InfoData,
+                                        seedInfo,
                                         combinedVisualData,
                                         firstSeed.BlessingData,
                                         useBehaviours.ToArray(),

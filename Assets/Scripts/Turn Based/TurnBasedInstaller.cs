@@ -12,10 +12,13 @@ namespace SotongStudio
         private BattleSystemView _battleSystemView;
         [SerializeField]
         private EnemyConfigCollection _enemyConfigCollection;
+        [SerializeField]
+        private BattleVisualEffect _battleVisualEffect;
 
         public override void Install(IContainerBuilder builder)
         {
-            builder.Register<BattleSystemLogic>(Lifetime.Singleton);
+            builder.Register<BattleSystemLogic>(Lifetime.Singleton)
+                   .WithParameter(_battleVisualEffect);
             //builder.RegisterComponent(_playerActionView);
             builder.RegisterComponent(_battleSystemView);
 

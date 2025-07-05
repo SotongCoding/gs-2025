@@ -31,6 +31,14 @@ namespace SotongStudio
     [System.Serializable]
     public class SeedInfoData
     {
+        private string v;
+
+        public SeedInfoData(SeedType seedType, string v)
+        {
+            SeedType = seedType;
+            this.v = v;
+        }
+
         [field: SerializeField]
         public string SeedName { get; private set; }
 

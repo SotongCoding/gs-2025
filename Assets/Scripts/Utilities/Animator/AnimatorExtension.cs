@@ -11,6 +11,7 @@ namespace SotongStudio.Unlink.Utilities.AnimatorHelper
         {
             var currentClip = animator.GetCurrentAnimatorClipInfo(0);
             var currentLenght = currentClip[0].clip.length;
+            animator.Play(currentClip[0].clip.name);
 
             return UniTask.WaitForSeconds(currentLenght, cancellationToken: cancellationToken);
         }
@@ -20,6 +21,7 @@ namespace SotongStudio.Unlink.Utilities.AnimatorHelper
             var controllerClips = animator.runtimeAnimatorController.animationClips;
             var selectedClip = controllerClips.First(clip => clip.name == stateName);
             var currentLenght = selectedClip.length;
+            animator.Play(stateName);
 
             return UniTask.WaitForSeconds(currentLenght, cancellationToken: cancellationToken);
         }

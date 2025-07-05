@@ -11,6 +11,8 @@ namespace SotongStudio
         public Transform uiContainer;              // Tempat meletakkan panah
         public GameObject quickActionUI;           // Panel Quick Action
 
+        public Image TimeImage;
+
         [Header("Arrow Prefabs")]
         public GameObject arrowUpPrefab;
         public GameObject arrowDownPrefab;

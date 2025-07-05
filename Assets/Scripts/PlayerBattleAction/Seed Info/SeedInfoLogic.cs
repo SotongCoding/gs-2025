@@ -28,6 +28,7 @@ namespace SotongStudio
 
         public void ShowSeedInfo(ISeedData seedData)
         {
+            _view.SetSeedName(seedData.InfoData.SeedName);
             ShowUseInfo(seedData.UseBehaviourIds);
             ShowThrowInfo(seedData.ThrowBehaviourIds);
 

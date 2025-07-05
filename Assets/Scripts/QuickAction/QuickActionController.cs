@@ -22,6 +22,10 @@ namespace SotongStudio
         {
 
             timer -= Time.deltaTime;
+            if (isActive)
+            {
+                view.TimeImage.fillAmount = timer / currentAction.Duration;
+            }
 
             // Gagal jika waktu habis
             if (isActive && timer <= 0f)
@@ -71,7 +75,7 @@ namespace SotongStudio
             if (IsCorrectInput(expected))
             {
                 // Input benar → ubah warna panah jadi merah
-                view.HighlightArrow(currentIndex, Color.red);
+                view.HighlightArrow(currentIndex, Color.green);
                 currentIndex++;
 
                 // Jika semua arah selesai → tunggu space
