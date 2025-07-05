@@ -118,6 +118,8 @@ namespace SotongStudio
 
         private void DoEndBattleSequence()
         {
+            //_view.PlayAfterBattleBGM();
+
             if (_levelManager.CurrentLevel >=9)
             {
                 Debug.Log("This GAME OVER");

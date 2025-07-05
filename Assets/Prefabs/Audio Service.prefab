@@ -318,4 +318,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: efa24355032503147a9d4a61243b8e65, type: 3}
   - {fileID: 8300000, guid: d8878aa77a468144083b44c8e596b76f, type: 3}
   - {fileID: 8300000, guid: e2e5fd078d8aec446a7262dfc89a0269, type: 3}
-  - {fileID: 8300000, guid: 7a28cd293874f9247bfdc7dc6a50fa82, type: 3}
+  _pickSeedSfx: {fileID: 8300000, guid: 7a28cd293874f9247bfdc7dc6a50fa82, type: 3}

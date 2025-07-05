@@ -11,7 +11,12 @@ namespace SotongStudio
 
         [SerializeField] private List<AudioClip> _musicClips;
         [SerializeField] private List<AudioClip> _sfxClips;
+        [SerializeField] private AudioClip _pickSeedSfx;
 
+        private void Start()
+        {
+            PlayMusic(1);
+        }
         public void PlayMusic(int index)
         {
             _musicSource.clip = _musicClips[index];
@@ -27,6 +32,14 @@ namespace SotongStudio
         public void StopMusic()
         {
             _musicSource.Stop();
+        }
+
+        public void PlayPickSeedSfx(bool toggle)
+        {
+            if (toggle)
+            {
+                _sfxSource.PlayOneShot(_pickSeedSfx);
+            }
         }
     }
 }
