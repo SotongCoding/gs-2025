@@ -97,7 +97,7 @@ namespace SotongStudio
             using var _ = ListPool<UniTask>.Get(out var changeProcess);
             foreach (var item in _enemySprite)
             {
-                var colorChange = item.DOColor(Color.red, 0.1f).OnComplete(() =>
+                var colorChange = item.DOColor(Color.red, 0.3f).OnComplete(() =>
                 {
                     item.DOColor(Color.white, 0.1f);
                 }).AsyncWaitForCompletion().AsUniTask();

@@ -7,12 +7,14 @@ namespace SotongStudio
     public interface IFightActionView
     {
         UnityEvent OnStartQA { get; }
+        UnityEvent OnSpaceBarAction { get; }
         void Show();
         void Hide();
     }
     public class FightActionView : MonoBehaviour, IFightActionView
     {
         public UnityEvent OnStartQA => _fightButton.onClick;
+        public UnityEvent OnSpaceBarAction { get; private set; } = new UnityEvent();   
 
         [SerializeField]
         private Button _fightButton;
@@ -34,7 +36,7 @@ namespace SotongStudio
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                OnStartQA.Invoke();
+                OnSpaceBarAction.Invoke();
             }
         }
     }

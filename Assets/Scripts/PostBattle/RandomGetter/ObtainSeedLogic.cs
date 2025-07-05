@@ -35,10 +35,12 @@ namespace SotongStudio
         public void AddSeedToInventory()
         {
             var getedSeed = RandomizeSeedObtain();
-
-            _seedVisual.ShowSeedAs(getedSeed.VisualData.TopPart,
-                                   getedSeed.VisualData.MiddlePart,
-                                   getedSeed.VisualData.BottomPart);
+            if (getedSeed != null)
+            {
+                _seedVisual.ShowSeedAs(getedSeed.VisualData.TopPart,
+                                       getedSeed.VisualData.MiddlePart,
+                                       getedSeed.VisualData.BottomPart);
+            }
 
             _view.ShowObtainPopup();
         }
@@ -51,6 +53,10 @@ namespace SotongStudio
         private ISeedData RandomizeSeedObtain()
         {
             var allPossibleSeeds = _seedService.GetNonOwnedRegularSeedIds();
+            if (allPossibleSeeds.Length == 0)
+            {
+                return null;
+            }
             var selectedSeedIndex = Random.Range(0, allPossibleSeeds.Length);
             var selectedSeedId = allPossibleSeeds[selectedSeedIndex];
 

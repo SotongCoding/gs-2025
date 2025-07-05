@@ -71,6 +71,7 @@ namespace SotongStudio
         {
             _combineSeedView.HideCombineSeedUI();
             _combineSeedView.ClearResult();
+            _selectedSeeds.Clear();
         }
         public void Show()
         {

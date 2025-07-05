@@ -54,6 +54,7 @@ namespace SotongStudio
             _fightView = fightView;
 
             _fightView.OnStartQA.AddListener(StartFight);
+            _fightView.OnSpaceBarAction.AddListener(StartFight);
 
         }
 
@@ -152,13 +153,15 @@ namespace SotongStudio
             OnStartQA?.Invoke();
         }
 
-        public void ShowPreBattleUI()
+        public async void ShowPreBattleUI()
         {
-            _isBattle = true; //TODO Need better Handling for Select Seed in Combine and Battle
 
             _fightView.Show();
             _seedInventoryLogic.UpdateInventoryList();
             _seedInventoryLogic.ShowInventory();
+
+            await UniTask.WaitForSeconds(1f);
+            _isBattle = true; //TODO Need better Handling for Select Seed in Combine and Battle
         }
 
         public void HidePreBattleUI()

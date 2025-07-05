@@ -7,6 +7,7 @@ namespace SotongStudio
         IBattleUnitStatus BaseStatus { get; }
 
         void AddStat(IBasicStatusData addedStat);
+        void Clear();
         void ReduceHealth(int reduceAmount);
 
     }
@@ -40,6 +41,13 @@ namespace SotongStudio
         public void ReduceHealth(int damage)
         {
             _health -= damage;
+        }
+
+        public void Clear()
+        {
+            _attack = 0;
+            _health = 0;
+            _defense = 0;
         }
     }
 }

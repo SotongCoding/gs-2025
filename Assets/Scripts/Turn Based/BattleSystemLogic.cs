@@ -1,5 +1,6 @@
 #nullable enable
 
+using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer.Unity;
@@ -82,9 +83,15 @@ namespace SotongStudio
         {
             Debug.Log("Start Battle");
             SetupEnemy(_levelManager.CurrentLevel);
+            ResetModifiedCharacterStat();
 
             _battleActionControl.ShowPreBattleUI();
 
+        }
+
+        private void ResetModifiedCharacterStat()
+        {
+            _unitManager.Character.ResetModifiedStat();
         }
 
         private void SetupEnemy(int level)
@@ -102,6 +109,7 @@ namespace SotongStudio
 
         private void StartQuickAction()
         {
+            Debug.Log("Start Battle Sys QA");
             var enemyConfig = _levelManager.GetCurrentEnemyConfig();
             var qaConfig = enemyConfig.QAData;
 
@@ -118,7 +126,7 @@ namespace SotongStudio
         {
             if (isQASuccess)
             {
-                DealDamageToEnemy();
+                await DealDamageToEnemyAsync();
             }
             else
             {
@@ -151,7 +159,7 @@ namespace SotongStudio
             StartBattle();
         }
 
-        private void DealDamageToEnemy()
+        private UniTask DealDamageToEnemyAsync()
         {
             var enemy = _unitManager.Enemy;
             var character = _unitManager.Character;
@@ -159,7 +167,7 @@ namespace SotongStudio
 
             _battleHelper.GiveDamageToEnemy(damage);
 
-            _levelManager.EnemyView.PlayTakeDamageVFXAsync().Forget();
+            return _levelManager.EnemyView.PlayTakeDamageVFXAsync();
         }
 
         private void DealDamageToCharacter()
