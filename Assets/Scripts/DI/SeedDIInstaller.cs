@@ -7,7 +7,7 @@ namespace SotongStudio
     {
         public override void Install(IContainerBuilder builder)
         {
-            builder.Register<PlayerSeedDataService>(Lifetime.Singleton).As<IPlayerSeedDataService>();
+            builder.Register<PlayerSeedService>(Lifetime.Singleton).As<IPlayerSeedService>();
             builder.Register<CharacterSeedInventoryProvider>(Lifetime.Singleton).As<ICharacterSeedInventoryProvider, 
                                                                                     ICharacterSeedInventoryProviderUpdate>();
 
