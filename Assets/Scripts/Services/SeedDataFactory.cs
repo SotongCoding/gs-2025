@@ -4,7 +4,7 @@ namespace SotongStudio
 {
     public interface ISeedDataFactory
     {
-        ISeedData CreateSeedInventoryData(string seedId);
+        ISeedData CreateSeedInventoryDataFromRegularId(string seedId);
     }
     public class SeedDataFactory : ISeedDataFactory
     {
@@ -15,7 +15,7 @@ namespace SotongStudio
             _seedConfigCollection = seedConfigCollection;
         }
 
-        public ISeedData CreateSeedInventoryData(string seedId)
+        public ISeedData CreateSeedInventoryDataFromRegularId(string seedId)
         {
             var seedConfig = _seedConfigCollection.GetItem(seedId);
 
@@ -24,8 +24,8 @@ namespace SotongStudio
                                 seedConfig.VisualData,
                                 seedConfig.BlessingData,
 
-                                Array.Empty<string>(),
-                                Array.Empty<string>());
+                                new[] { seedConfig.UseBehavioursIds },
+                                new[] { seedConfig.ThrowBehavioursIds });
         }
     }
 }

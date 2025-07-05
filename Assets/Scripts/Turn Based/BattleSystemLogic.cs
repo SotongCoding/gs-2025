@@ -1,38 +1,49 @@
+#nullable enable
+
 using Cysharp.Threading.Tasks;
-using NaughtyAttributes;
 using UnityEngine;
 using VContainer.Unity;
 
 namespace SotongStudio
 {
-
-    public class BattleSystemLogic : IStartable
+    public class BattleSystemLogic 
     {
-        private readonly PlayerActionView _playerActionView;
+        private readonly IPlayerBattleActionController _battleActionControl;
         private readonly BattleSystemView _view;
+        private readonly QuickActionController _quickAction;
 
-        public BattleSystemLogic(PlayerActionView playerActionView, BattleSystemView battleSystemView)
+        private readonly IBattleUnitManager _unitManager;
+        private readonly IBattleHelper _battleHelper;
+
+        private readonly LevelManager _levelManager;
+
+        public BattleSystemLogic(IPlayerBattleActionController playerBattleAction,
+                                 BattleSystemView battleSystemView,
+                                 QuickActionController qickActionController,
+                                 IBattleUnitManager unitManger,
+                                 IBattleHelper battleHelper,
+                                 LevelManager levelManager)
         {
-            this._playerActionView = playerActionView;
-            this._view = battleSystemView;
+            _view = battleSystemView;
 
-            _playerActionView.SeedSelectedButton.onClick.AddListener(ShowSeedDescription);
-            _playerActionView.FightButton.onClick.AddListener(FightButtonPressed);
-            _playerActionView.UseSeedButton.onClick.AddListener(_view.UseSeedButtonPressed);
-            _playerActionView.ThrowSeedButton.onClick.AddListener(_view.ThrowSeedButtonPressed);
+            _levelManager = levelManager;
 
-            _view.OnDoneQTA.AddListener(QTADone);
-        }
+            _battleActionControl = playerBattleAction;
+            _quickAction = qickActionController;
 
-        void IStartable.Start()
-        {
-            _view.SetupBattleVisual();
+            _unitManager = unitManger;
+            _battleHelper = battleHelper;
+
+            _battleActionControl.OnStartQA.AddListener(StartQuickAction);
+            _quickAction.OnDoneQuickAction.AddListener(DoneQuickActionSequence);
+
+            _unitManager.SetCharacterUnit(new CharacterUnit(10, 10, 100000));
         }
 
         private void FightButtonPressed()
         {
             _view.HidePreparationUI();
-            NextTurn();
+            BeginNewTurn();
         }
 
         private void ShowSeedDescription()
@@ -47,14 +58,94 @@ namespace SotongStudio
 
         private async UniTask EnemyTurnAsync()
         {
-            _view.EnemyAttack();
+            DealDamageToCharacter();
             await UniTask.WaitForSeconds(1f);
-            NextTurn();
+            BeginNewTurn();
         }
 
-        private void NextTurn()
+        private void BeginNewTurn()
         {
-            _view.ShowQTA();
+            StartPlayerTurn();
         }
+
+        public void StartBattle()
+        {
+            Debug.Log("Start Battle");
+            SetupEnemy(_levelManager.CurrentLevel);            
+
+            _battleActionControl.ShowPreBattleUI();
+
+        }
+
+        private void SetupEnemy(int level)
+        {
+            _levelManager.InisiateEnemy();
+            var enemyConfig = _levelManager.GetCurrentEnemyConfig();
+            _unitManager.SetEnemyUnit(enemyConfig);
+        }
+
+        private void StartPlayerTurn()
+        {
+            _battleActionControl.ShowPreBattleUI();
+        }
+
+        private void StartQuickAction()
+        {
+            var enemyConfig = _levelManager.GetCurrentEnemyConfig();
+            var qaConfig = enemyConfig.QAData;
+
+            _battleActionControl.HidePreBattleUI();
+            _quickAction.StartQuickAction(qaConfig.QADuration, qaConfig.QAAmount);
+        }
+
+        private void DoneQuickActionSequence(bool isQASuccess)
+        {
+            if (isQASuccess)
+            {
+                DealDamageToEnemy();
+            }
+
+            if (_unitManager.Enemy.IsDead)
+            {
+                _levelManager.DefeatEnemy();
+                DoEndBattleSequence();
+
+                return;
+            }
+
+            QTADone();
+        }
+
+        private void DoEndBattleSequence()
+        {
+            if (_levelManager.CurrentLevel >=9)
+            {
+                Debug.Log("This GAME OVER");
+            }
+            //Do Player Post Battle
+            _levelManager.FinishAfterBattleActivity();
+            StartBattle();
+        }
+
+        private void DealDamageToEnemy()
+        {
+            var enemy = _unitManager.Enemy;
+            var character = _unitManager.Character;
+            var damage = DamageCalculator.GetDamage(character, enemy);
+
+            _battleHelper.GiveDamageToEnemy(damage);
+        }
+
+        private void DealDamageToCharacter()
+        {
+            var enemy = _unitManager.Enemy;
+            var character = _unitManager.Character;
+
+            var damage = DamageCalculator.GetDamage(enemy, character);
+
+            _battleHelper.GiveDamageToCharacter(damage);
+        }
+
+
     }
 }

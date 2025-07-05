@@ -8,8 +8,8 @@ namespace SotongStudio
         SeedVisualData VisualData { get; }
         SeedBlessingData BlessingData { get; }
 
-        public string[] UseBehaviours { get; }
-        public string[] ThrowBehaviours { get; }
+        public string[] UseBehaviourIds { get; }
+        public string[] ThrowBehaviourIds { get; }
     }
 
     public class SeedData : ISeedData
@@ -25,15 +25,15 @@ namespace SotongStudio
             InfoData = infoData;
             VisualData = visualData;
             BlessingData = blessingData;
-            UseBehaviours = useBehaviours;
-            ThrowBehaviours = throwBehaviours;
+            UseBehaviourIds = useBehaviours;
+            ThrowBehaviourIds = throwBehaviours;
         }
 
         public string SeedId { get; private set; }
         public SeedInfoData InfoData { get; }
         public SeedVisualData VisualData { get; private set; }
         public SeedBlessingData BlessingData { get; private set; }
-        public string[] UseBehaviours { get; private set; }
-        public string[] ThrowBehaviours { get; private set; }
+        public string[] UseBehaviourIds { get; private set; }
+        public string[] ThrowBehaviourIds { get; private set; }
     }
 }
