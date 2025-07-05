@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SBV-TRW-WIS-GAMBLING
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-WIS-GAMBLING
-  Description: Throw Wisdom Gambling
+  Description: Musuh mendapat efek random berupa DEF bertambah atau berkurang.
   _minStatData:
     <Attack>k__BackingField: 0
-    <Defense>k__BackingField: -15
+    <Defense>k__BackingField: -5
     <Health>k__BackingField: 0
   _maxStatData:
     <Attack>k__BackingField: 0

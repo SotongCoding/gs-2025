@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SBV-TRW-LIF-STRAIGHT
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-LIF-STRAIGHT
-  Description: Throw Straight Life
+  Description: Mengurangi HP musuh.
   _statUpData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0
-    <Health>k__BackingField: 300
+    <Health>k__BackingField: -50

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SBV-USE-LIF-STRAIGHT
   m_EditorClassIdentifier: 
   BehaviourId: SBV-USE-LIF-STRAIGHT
-  Description: Use Life Straight
+  Description: Menambah HP pemain.
   _statUpData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0
-    <Health>k__BackingField: 100
+    <Health>k__BackingField: 50

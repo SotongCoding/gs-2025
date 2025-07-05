@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SBV-USE-WIS-STRAIGHT
   m_EditorClassIdentifier: 
   BehaviourId: SBV-USE-WIS-STRAIGHT
-  Description: Use Wisdom Straight
+  Description: Menambah DEF pemain.
   _statUpData:
     <Attack>k__BackingField: 0
-    <Defense>k__BackingField: 10
+    <Defense>k__BackingField: 5
     <Health>k__BackingField: 0

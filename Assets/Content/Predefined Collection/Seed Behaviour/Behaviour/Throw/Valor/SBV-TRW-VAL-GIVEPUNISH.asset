@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SBV-TRW-VAL-GIVEPUNISH
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-VAL-GIVEPUNISH
-  Description: Throw Valor Give Punish
+  Description: Musuh mendapatkan HP  akan tetapi mengurangi ATK.
   _givenStat:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0
-    <Health>k__BackingField: 100
+    <Health>k__BackingField: 50
   _takenStat:
-    <Attack>k__BackingField: -10
+    <Attack>k__BackingField: -7
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0
