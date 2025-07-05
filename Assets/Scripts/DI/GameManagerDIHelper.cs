@@ -10,7 +10,7 @@ namespace SotongStudio
         private GameManagerView _gameManagerView;
         public override void Install(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<GameManager>(Lifetime.Singleton)
+            builder.RegisterEntryPoint<GameManager>(Lifetime.Singleton).AsSelf()
                     .WithParameter(_gameManagerView);
 
         }

@@ -15,11 +15,23 @@ namespace SotongStudio
 
             view.OnGameStart.AddListener(GameStart);
             _battleSystem = battleSystem;
+
+            _battleSystem.OnGameEnd.AddListener(DecideEndGame);
+        }
+
+        private void DecideEndGame(bool arg0)
+        {
+            GameOver();
         }
 
         public void Start()
         {
             
+        }
+
+        public void GameOver()
+        {
+            _view.ShowGameOver();
         }
 
         private void GameStart()

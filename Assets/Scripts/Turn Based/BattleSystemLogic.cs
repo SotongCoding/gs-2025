@@ -3,6 +3,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 using VContainer.Unity;
 
 namespace SotongStudio
@@ -19,6 +20,8 @@ namespace SotongStudio
 
         private readonly IPostBattleControlller _postBattleController;
         private readonly LevelManager _levelManager;
+
+        public UnityEvent<bool> OnGameEnd = new();
 
         public BattleSystemLogic(IPlayerBattleActionController playerBattleAction,
                                  BattleSystemView battleSystemView,
@@ -46,7 +49,8 @@ namespace SotongStudio
             _battleActionControl.OnStartQA.AddListener(StartQuickAction);
             _quickAction.OnDoneQuickAction.AddListener(DoneQuickActionSequence);
 
-            _unitManager.SetCharacterUnit(new CharacterUnit(10, 10, 400));
+            _unitManager.SetCharacterUnit(new CharacterUnit(10, 10, 500));
+
         }
 
         private void FightButtonPressed()
@@ -109,7 +113,6 @@ namespace SotongStudio
 
         private void StartQuickAction()
         {
-            Debug.Log("Start Battle Sys QA");
             var enemyConfig = _levelManager.GetCurrentEnemyConfig();
             var qaConfig = enemyConfig.QAData;
 
@@ -141,7 +144,18 @@ namespace SotongStudio
                 return;
             }
 
-            QTADone();
+            if (_unitManager.Character.IsDead)
+            {
+                Debug.Log("Character is dead, GAME OVER");
+                OnGameEnd.Invoke(false);
+                return;
+            }
+            else
+            {
+
+                QTADone();
+            }
+
         }
 
         private async UniTask DoEndBattleSequenceAsync()
@@ -150,7 +164,8 @@ namespace SotongStudio
 
             if (_levelManager.CurrentLevel >= 9)
             {
-                Debug.Log("This GAME OVER");
+                OnGameEnd.Invoke(true);
+                return;
             }
 
             await _postBattleController.DoPostBattleSequenceAsync();
