@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using VContainer.Unity;
 
 namespace SotongStudio
 {
@@ -11,13 +12,14 @@ namespace SotongStudio
         void Hide();
     }
 
-    public class ObtainSeedLogic : IObtainSeedLogic
+    public class ObtainSeedLogic : IObtainSeedLogic , ITickable
     {
         private readonly IPlayerSeedService _seedService;
         private readonly ISeedDataFactory _seedDataFactory;
 
         private readonly IObtainSeedPopupView _view;
         private readonly SeedVisualView _seedVisual;
+        private bool _isShow;
 
         public ObtainSeedLogic(IPlayerSeedService seedService,
                                ISeedDataFactory seedDataFactory,
@@ -43,11 +45,23 @@ namespace SotongStudio
             }
 
             _view.ShowObtainPopup();
+
+            _isShow = true;
         }
 
         public void Hide()
         {
+            _isShow = false;
             _view.Hide();
+        }
+
+        public void Tick()
+        {
+            if(!_isShow) { return; }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                OnDoneObtainSeed.Invoke();
+            }
         }
 
         private ISeedData RandomizeSeedObtain()

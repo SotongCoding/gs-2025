@@ -1,9 +1,13 @@
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Triggers;
+using UnityEngine;
 using UnityEngine.Events;
+using VContainer.Unity;
 
 namespace SotongStudio
 {
-    public interface ICombineSeedLogic
+    public interface ICombineSeedLogic 
     {
         UnityEvent OnCloseCombinedSeed { get; }
         UnityEvent OnCombineAction { get; }
@@ -14,14 +18,14 @@ namespace SotongStudio
         void Show();
         void Hide();
     }
-    public class CombineSeedLogic : ICombineSeedLogic
+    public class CombineSeedLogic : ICombineSeedLogic, ITickable
     {
         public UnityEvent OnCloseCombinedSeed => _combineSeedView.OnCombineSeedClose;
         public UnityEvent OnCombineAction => _combineSeedView.OnCombineSeed;
 
         private readonly ICombineSeedView _combineSeedView;
         private List<ISeedData> _selectedSeeds = new();
-
+        private bool _isShow;
         private readonly ISeedDataFactory _dataFactory;
         private readonly IPlayerSeedService _seedService;
 
@@ -69,13 +73,18 @@ namespace SotongStudio
 
         public void Hide()
         {
+            _isShow = false;
+
             _combineSeedView.HideCombineSeedUI();
             _combineSeedView.ClearResult();
             _selectedSeeds.Clear();
         }
         public void Show()
         {
+            UpdateSeedVisual();
             _combineSeedView.ShowCombineSeedUI();
+
+            _isShow = true;
         }
 
         public void DoCombineProcess()
@@ -87,6 +96,15 @@ namespace SotongStudio
 
             _selectedSeeds.Clear();
             UpdateSeedVisual();
+        }
+
+        public void Tick()
+        {
+            if(!_isShow) { return; }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                OnCloseCombinedSeed.Invoke();
+            }
         }
     }
 }

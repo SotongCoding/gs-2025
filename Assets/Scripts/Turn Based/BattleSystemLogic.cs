@@ -46,7 +46,7 @@ namespace SotongStudio
             _battleActionControl.OnStartQA.AddListener(StartQuickAction);
             _quickAction.OnDoneQuickAction.AddListener(DoneQuickActionSequence);
 
-            _unitManager.SetCharacterUnit(new CharacterUnit(10, 10, 3600));
+            _unitManager.SetCharacterUnit(new CharacterUnit(10, 10, 400));
         }
 
         private void FightButtonPressed()
@@ -91,7 +91,7 @@ namespace SotongStudio
 
         private void ResetModifiedCharacterStat()
         {
-            _unitManager.Character.ResetModifiedStat();
+            _unitManager.Character.ResetSeedStatus();
         }
 
         private void SetupEnemy(int level)

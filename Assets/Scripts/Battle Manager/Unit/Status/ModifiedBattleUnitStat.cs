@@ -4,8 +4,6 @@ namespace SotongStudio
 {
     public interface IModifiedBattleUnitStatus : IBasicStatusData
     {
-        IBattleUnitStatus BaseStatus { get; }
-
         void AddStat(IBasicStatusData addedStat);
         void Clear();
         void ReduceHealth(int reduceAmount);
@@ -14,7 +12,6 @@ namespace SotongStudio
 
     public class ModifiedBattleUnitStat : IModifiedBattleUnitStatus
     {
-        public IBattleUnitStatus BaseStatus { get; private set; }
 
         private int _attack;
 
@@ -22,14 +19,13 @@ namespace SotongStudio
 
         private int _health;
 
-        public ModifiedBattleUnitStat(IBattleUnitStatus baseStatus)
+        public ModifiedBattleUnitStat()
         {
-            BaseStatus = baseStatus;
         }
 
-        public int Attack => BaseStatus.Attack + _attack;
-        public int Defense => BaseStatus.Defense + _defense;
-        public int Health => BaseStatus.Health + _health;
+        public int Attack => _attack;
+        public int Defense => _defense;
+        public int Health => _health;
 
         public void AddStat(IBasicStatusData addedStat)
         {

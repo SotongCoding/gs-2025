@@ -2924,6 +2924,17 @@ MonoBehaviour:
   _seedUI: {fileID: 0}
   _qtaUI: {fileID: 0}
   _audioService: {fileID: 1718423949}
+--- !u!114 &1819982609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6129856428886217648, guid: 06efbc44a70f5db469af55783142649f, type: 3}
+  m_PrefabInstance: {fileID: 3001921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1825155214 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 199257386032367261, guid: 06efbc44a70f5db469af55783142649f, type: 3}
@@ -2959,6 +2970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fightButton: {fileID: 1636061878}
   _fightCanvas: {fileID: 2087658344}
+  _healthText: {fileID: 1819982609}
 --- !u!114 &2093354866 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7670848710271123937, guid: 03f2fabbc7cf20e4ea0b465dbe745955, type: 3}

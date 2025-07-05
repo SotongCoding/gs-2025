@@ -29,6 +29,7 @@ namespace SotongStudio
         private readonly ISeedInventoryLogic _seedInventoryLogic;
         private readonly IFightActionView _fightView;
         private readonly IPlayerSeedService _seedService;
+        private readonly IBattleUnitManager _battleUnitManager;
 
         private ISeedData? _currentSelectedSeed;
         private bool _isBattle;
@@ -38,7 +39,8 @@ namespace SotongStudio
                                             ISeedInfoLogic seedInfoLogic,
                                             ISeedInventoryLogic seedInventoryLogic,
                                             IFightActionView fightView,
-                                            IPlayerSeedService seedService)
+                                            IPlayerSeedService seedService,
+                                            IBattleUnitManager battleUnitManager)
         {
             _behaviourCollection = behaviourCollection;
             _battleHelper = battleHelper;
@@ -55,7 +57,7 @@ namespace SotongStudio
 
             _fightView.OnStartQA.AddListener(StartFight);
             _fightView.OnSpaceBarAction.AddListener(StartFight);
-
+            _battleUnitManager = battleUnitManager;
         }
 
         private void UpdateCurrentSeed(ISeedData selectedSeed)
@@ -159,8 +161,9 @@ namespace SotongStudio
             _fightView.Show();
             _seedInventoryLogic.UpdateInventoryList();
             _seedInventoryLogic.ShowInventory();
+            _fightView.UpdateHealthText(_battleUnitManager.Character.FinalStatus.Health);
 
-            await UniTask.WaitForSeconds(1f);
+            await UniTask.WaitForSeconds(0.35f);
             _isBattle = true; //TODO Need better Handling for Select Seed in Combine and Battle
         }
 
