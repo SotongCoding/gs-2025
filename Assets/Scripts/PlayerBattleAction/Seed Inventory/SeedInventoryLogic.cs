@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace SotongStudio
@@ -43,6 +44,8 @@ namespace SotongStudio
         {
             var seeds = _seedDataService.GetOwnedSeeds();
             var amount = seeds.Count();
+
+            Debug.Log($"Updating inventory with {amount} seeds.");
 
             for (int i = 0; i < amount; i++)
             {

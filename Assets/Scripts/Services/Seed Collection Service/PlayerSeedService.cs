@@ -12,6 +12,8 @@ namespace SotongStudio
         void AddCombinedSeedToInventory(ISeedData combinedSeed);
         string[] GetNonOwnedRegularSeedIds();
         IEnumerable<ISeedData> GetOwnedSeeds();
+
+        void RemoveSeedFromInventory(ISeedData seedData);
     }
 
     public class PlayerSeedService : IPlayerSeedService
@@ -61,6 +63,11 @@ namespace SotongStudio
         public IEnumerable<ISeedData> GetOwnedSeeds()
         {
             return _seedInventory.GetAllOwnedSeeds();
+        }
+
+        public void RemoveSeedFromInventory(ISeedData seedData)
+        {
+            _seedInventoryUpdate.RemoveSeed(seedData);
         }
     }
 }

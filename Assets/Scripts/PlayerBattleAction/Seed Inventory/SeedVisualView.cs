@@ -30,6 +30,8 @@ namespace SotongStudio
 
         public void ShowSeedAs(SeedType topPart, SeedType middle, SeedType bottomPart)
         {
+            _baseVisualCanvas.Show();
+
             ShowTopPart(topPart);
             ShowMiddPart(middle);
             ShowBottPart(bottomPart);
@@ -103,10 +105,6 @@ namespace SotongStudio
         public void HideVisual()
         {
             _baseVisualCanvas.Hide();
-        }
-        public void ShowVisual()
-        {
-            _baseVisualCanvas.Show();
         }
     }
 }
