@@ -1,6 +1,5 @@
 #nullable enable
 
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer.Unity;
@@ -12,6 +11,7 @@ namespace SotongStudio
         private readonly IPlayerBattleActionController _battleActionControl;
         private readonly BattleSystemView _view;
         private readonly QuickActionController _quickAction;
+        private readonly BattleVisualEffect _visualEffect;
 
         private readonly IBattleUnitManager _unitManager;
         private readonly IBattleHelper _battleHelper;
@@ -25,7 +25,8 @@ namespace SotongStudio
                                  IBattleUnitManager unitManger,
                                  IBattleHelper battleHelper,
                                  LevelManager levelManager,
-                                 IPostBattleControlller postBattleController
+                                 IPostBattleControlller postBattleController,
+                                 BattleVisualEffect visualEffect
                                  )
         {
             _view = battleSystemView;
@@ -39,10 +40,12 @@ namespace SotongStudio
             _battleHelper = battleHelper;
             _postBattleController = postBattleController;
 
+            _visualEffect = visualEffect;
+
             _battleActionControl.OnStartQA.AddListener(StartQuickAction);
             _quickAction.OnDoneQuickAction.AddListener(DoneQuickActionSequence);
 
-            _unitManager.SetCharacterUnit(new CharacterUnit(10, 10, 100000));
+            _unitManager.SetCharacterUnit(new CharacterUnit(10, 10, 3600));
         }
 
         private void FightButtonPressed()
@@ -58,14 +61,16 @@ namespace SotongStudio
 
         private void QTADone()
         {
-            EnemyTurnAsync().Forget();
+            BeginNewTurn();
         }
 
         private async UniTask EnemyTurnAsync()
         {
+            Debug.Log("Enemy Turn");
             DealDamageToCharacter();
-            await UniTask.WaitForSeconds(1f);
-            BeginNewTurn();
+            await _levelManager.EnemyView.PlayAttackAnimationAsync();
+            _levelManager.EnemyView.PlayIdleAnimationAsync().Forget();
+
         }
 
         private void BeginNewTurn()
@@ -84,9 +89,10 @@ namespace SotongStudio
 
         private void SetupEnemy(int level)
         {
-            _levelManager.InisiateEnemy();
             var enemyConfig = _levelManager.GetCurrentEnemyConfig();
             _unitManager.SetEnemyUnit(enemyConfig);
+            _levelManager.InisiateEnemy();
+            _levelManager.EnemyView.PlayIdleAnimationAsync().Forget();
         }
 
         private void StartPlayerTurn()
@@ -103,11 +109,20 @@ namespace SotongStudio
             _quickAction.StartQuickAction(qaConfig.QADuration, qaConfig.QAAmount);
         }
 
-        private void DoneQuickActionSequence(bool isQASuccess)
+        void DoneQuickActionSequence(bool isQASuccess)
+        {
+            DoneQuickActionSequenceAsync(isQASuccess).Forget();
+        }
+
+        private async UniTask DoneQuickActionSequenceAsync(bool isQASuccess)
         {
             if (isQASuccess)
             {
                 DealDamageToEnemy();
+            }
+            else
+            {
+                await EnemyTurnAsync();
             }
 
             if (_unitManager.Enemy.IsDead)
@@ -143,16 +158,21 @@ namespace SotongStudio
             var damage = DamageCalculator.GetDamage(character, enemy);
 
             _battleHelper.GiveDamageToEnemy(damage);
+
+            _levelManager.EnemyView.PlayTakeDamageVFXAsync().Forget();
         }
 
         private void DealDamageToCharacter()
         {
+
             var enemy = _unitManager.Enemy;
             var character = _unitManager.Character;
 
             var damage = DamageCalculator.GetDamage(enemy, character);
 
             _battleHelper.GiveDamageToCharacter(damage);
+
+            _visualEffect.PlayTakeDamageAnimation().Forget();
         }
 
 

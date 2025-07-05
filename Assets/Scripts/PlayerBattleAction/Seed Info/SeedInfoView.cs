@@ -12,6 +12,7 @@ namespace SotongStudio
 
         void SetThrowInfoText(string useInfoText);
         void SetUseInfoText(string useInfoText);
+        void SetSeedName(string seedName);
 
         void Show();
         void Hide();
@@ -27,6 +28,9 @@ namespace SotongStudio
 
         [SerializeField]
         private TMP_Text _throwText;
+
+        [SerializeField]
+        private TMP_Text _seedNameText;
 
         [SerializeField]
         private Button _useActionButton;
@@ -45,6 +49,11 @@ namespace SotongStudio
         public void SetUseInfoText(string useInfoText)
         {
             _useText.text = useInfoText;
+        }
+
+        public void SetSeedName(string seedName)
+        {
+            _seedNameText.text = seedName;
         }
 
         public void Show()

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SotongStudio
 {
-    public class LevelManager 
+    public class LevelManager
     {
         private readonly EnemyConfigCollection _enemyConfigCollection;
         private readonly BattleSystemView _battleSystemView;
@@ -15,6 +15,8 @@ namespace SotongStudio
 
         public int CurrentLevel => _level;
 
+        public EnemyView EnemyView => _enemyView;
+
         public LevelManager(EnemyConfigCollection enemyConfigCollection, BattleSystemView battleSystemView)
         {
             this._enemyConfigCollection = enemyConfigCollection;
@@ -26,9 +28,12 @@ namespace SotongStudio
 
         public void InisiateEnemy()
         {
-            _enemyConfigData = _enemyConfigCollection.GetItem($"{_level}");
-            _instanceObject = UnityEngine.Object.Instantiate(_enemyConfigData.VisualData.VisualPart, Vector3.zero, Quaternion.identity);
-            _enemyView = _instanceObject.GetComponent<EnemyView>();
+            if (_instanceObject == null)
+            {
+                _enemyConfigData = _enemyConfigCollection.GetItem($"{_level}");
+                _instanceObject = UnityEngine.Object.Instantiate(_enemyConfigData.VisualData.VisualPart, Vector3.zero, Quaternion.identity);
+                _enemyView = _instanceObject.GetComponent<EnemyView>();
+            }
             _enemyView.SetEnemyParts(_level);
         }
 

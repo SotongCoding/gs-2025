@@ -29,5 +29,13 @@ namespace SotongStudio
         {
             _fightCanvas.Hide();
         }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                OnStartQA.Invoke();
+            }
+        }
     }
 }
