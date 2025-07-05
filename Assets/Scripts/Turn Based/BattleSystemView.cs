@@ -17,6 +17,8 @@ namespace SotongStudio
 
         private bool _isQTAOn = false;
 
+        [SerializeField] private AudioService _audioService;
+
         //===========================================================
         public UnityEvent OnDefeatEnemy { get; private set; } = new();
         public UnityEvent OnFinishAfterBattleActivity { get; private set; } = new();
@@ -103,6 +105,12 @@ namespace SotongStudio
                 _qtaUI.SetActive(false);
                 _isQTAOn = false;
             }
+        }
+
+        //Play BGM
+        public void PlayAfterBattleBGM()
+        {
+            _audioService.PlayMusic(1);
         }
     }
 }

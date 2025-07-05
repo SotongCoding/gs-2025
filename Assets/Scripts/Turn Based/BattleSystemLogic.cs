@@ -75,7 +75,6 @@ namespace SotongStudio
 
         public void StartBattle()
         {
-            // PLay Battle BGM
             Debug.Log("Start Battle");
             SetupEnemy(_levelManager.CurrentLevel);
 
@@ -124,6 +123,8 @@ namespace SotongStudio
 
         private async UniTask DoEndBattleSequenceAsync()
         {
+            _view.PlayAfterBattleBGM();
+
             if (_levelManager.CurrentLevel >= 9)
             {
                 Debug.Log("This GAME OVER");

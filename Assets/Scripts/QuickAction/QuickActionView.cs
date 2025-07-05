@@ -19,6 +19,9 @@ namespace SotongStudio
 
         private List<GameObject> activeArrows = new(); // List panah aktif
 
+        [Header("Audio")]
+        [SerializeField] private AudioService _audioService;
+
         // Menampilkan panel UI
         public void ShowUI()
         {
@@ -74,6 +77,17 @@ namespace SotongStudio
                 Direction.Right => arrowRightPrefab,
                 _ => null,
             };
+        }
+
+        //SFX
+        public void PlayCorrectSfx()
+        {
+            _audioService.PlaySFX(2);
+        }
+
+        public void PlayWrongSfx()
+        {
+            _audioService.PlaySFX(3);
         }
     }
 }
