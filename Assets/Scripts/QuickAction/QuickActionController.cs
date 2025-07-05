@@ -112,12 +112,13 @@ namespace SotongStudio
             if (success)
             {
                 Debug.Log("Quick Action Sukses!");
-               
+                view.PlayCorrectSfx();
             }
 
             else
             {
                 Debug.Log("Quick Action Gagal!");
+                view.PlayWrongSfx();
             }
         }
     }

@@ -499,6 +499,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8452180885405424113, guid: 06efbc44a70f5db469af55783142649f, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452180885405424113, guid: 06efbc44a70f5db469af55783142649f, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452180885405424113, guid: 06efbc44a70f5db469af55783142649f, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1718423949}
+    - target: {fileID: 8452180885405424113, guid: 06efbc44a70f5db469af55783142649f, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452180885405424113, guid: 06efbc44a70f5db469af55783142649f, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452180885405424113, guid: 06efbc44a70f5db469af55783142649f, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SotongStudio.AudioService, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452180885405424113, guid: 06efbc44a70f5db469af55783142649f, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8931720725152113951, guid: 06efbc44a70f5db469af55783142649f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1115,6 +1143,7 @@ MonoBehaviour:
   arrowDownPrefab: {fileID: 5588274789521543196, guid: ba23e92bb8bd76045b9ba4007f935a4f, type: 3}
   arrowLeftPrefab: {fileID: 5588274789521543196, guid: 54911a56a260cda4aacc9bcc3ad86656, type: 3}
   arrowRightPrefab: {fileID: 5588274789521543196, guid: 436d02fb4ef467a45bd26c32942b8703, type: 3}
+  _audioService: {fileID: 1718423949}
 --- !u!1 &479894533 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7669883411389054728, guid: 06efbc44a70f5db469af55783142649f, type: 3}
@@ -1194,6 +1223,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 452465968}
+--- !u!1001 &685007615
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8407098257489167014, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
+      propertyPath: m_Name
+      value: Audio Service
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940480328248426298, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940480328248426298, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940480328248426298, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940480328248426298, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940480328248426298, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940480328248426298, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940480328248426298, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940480328248426298, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940480328248426298, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940480328248426298, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
 --- !u!1 &693780627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,7 +1596,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 843252277}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1718423949}
+        m_TargetAssemblyTypeName: SotongStudio.AudioService, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &947108810 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 500708620335435622, guid: 06efbc44a70f5db469af55783142649f, type: 3}
@@ -1570,7 +1668,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 947108812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1718423949}
+        m_TargetAssemblyTypeName: SotongStudio.AudioService, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1077274686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,7 +1832,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1203417283}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1718423949}
+        m_TargetAssemblyTypeName: SotongStudio.AudioService, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1213500259
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,7 +2398,30 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1636061876}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1718423949}
+        m_TargetAssemblyTypeName: SotongStudio.AudioService, Assembly-CSharp
+        m_MethodName: PlayMusic
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1718423949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8268422174629535083, guid: 95710f297e16f684bbb818bc97c50a0e, type: 3}
+  m_PrefabInstance: {fileID: 685007615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 378ec1cedb81abc458b820f7d418c88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1735851315
 GameObject:
   m_ObjectHideFlags: 0
@@ -2324,6 +2469,7 @@ MonoBehaviour:
   _preparationUI: {fileID: 0}
   _seedUI: {fileID: 0}
   _qtaUI: {fileID: 0}
+  _audioService: {fileID: 1718423949}
 --- !u!114 &1825155214 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 199257386032367261, guid: 06efbc44a70f5db469af55783142649f, type: 3}
@@ -2413,3 +2559,4 @@ SceneRoots:
   - {fileID: 1117835714}
   - {fileID: 171734107}
   - {fileID: 1256547365}
+  - {fileID: 685007615}
