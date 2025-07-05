@@ -9,11 +9,11 @@ namespace SotongStudio
     {
         void ClearSeedVisual();
         void SetupSeedItem(ISeedData seedData);
-        UnityEvent<ISeedData> OnSelectSeed { get; }
+        UnityEvent<ISeedData?> OnSelectSeed { get; }
     }
     public class SeedInventoryItemLogic : MonoBehaviour, ISeedInventoryItemLogic
     {
-        public UnityEvent<ISeedData> OnSelectSeed { get; private set; } = new();
+        public UnityEvent<ISeedData?> OnSelectSeed { get; private set; } = new();
 
         [SerializeField]
         private SeedInventoryItemView _view;
@@ -52,11 +52,6 @@ namespace SotongStudio
 
         private void SelectSeedProcess()
         {
-            if (_handledSeed == null)
-            {
-                Debug.LogWarning("No seed data is handled for selection.");
-                return;
-            }
             OnSelectSeed?.Invoke(_handledSeed);
         }
     }

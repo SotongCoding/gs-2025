@@ -1,12 +1,13 @@
 #nullable enable
 
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer.Unity;
 
 namespace SotongStudio
 {
-    public class BattleSystemLogic 
+    public class BattleSystemLogic
     {
         private readonly IPlayerBattleActionController _battleActionControl;
         private readonly BattleSystemView _view;
@@ -15,6 +16,7 @@ namespace SotongStudio
         private readonly IBattleUnitManager _unitManager;
         private readonly IBattleHelper _battleHelper;
 
+        private readonly IPostBattleControlller _postBattleController;
         private readonly LevelManager _levelManager;
 
         public BattleSystemLogic(IPlayerBattleActionController playerBattleAction,
@@ -22,7 +24,9 @@ namespace SotongStudio
                                  QuickActionController qickActionController,
                                  IBattleUnitManager unitManger,
                                  IBattleHelper battleHelper,
-                                 LevelManager levelManager)
+                                 LevelManager levelManager,
+                                 IPostBattleControlller postBattleController
+                                 )
         {
             _view = battleSystemView;
 
@@ -33,6 +37,7 @@ namespace SotongStudio
 
             _unitManager = unitManger;
             _battleHelper = battleHelper;
+            _postBattleController = postBattleController;
 
             _battleActionControl.OnStartQA.AddListener(StartQuickAction);
             _quickAction.OnDoneQuickAction.AddListener(DoneQuickActionSequence);
@@ -71,7 +76,7 @@ namespace SotongStudio
         public void StartBattle()
         {
             Debug.Log("Start Battle");
-            SetupEnemy(_levelManager.CurrentLevel);            
+            SetupEnemy(_levelManager.CurrentLevel);
 
             _battleActionControl.ShowPreBattleUI();
 
@@ -108,7 +113,7 @@ namespace SotongStudio
             if (_unitManager.Enemy.IsDead)
             {
                 _levelManager.DefeatEnemy();
-                DoEndBattleSequence();
+                DoEndBattleSequenceAsync().Forget();
 
                 return;
             }
@@ -116,15 +121,17 @@ namespace SotongStudio
             QTADone();
         }
 
-        private void DoEndBattleSequence()
+        private async UniTask DoEndBattleSequenceAsync()
         {
-            //_view.PlayAfterBattleBGM();
+            _view.PlayAfterBattleBGM();
 
-            if (_levelManager.CurrentLevel >=9)
+            if (_levelManager.CurrentLevel >= 9)
             {
                 Debug.Log("This GAME OVER");
             }
-            //Do Player Post Battle
+
+            await _postBattleController.DoPostBattleSequenceAsync();
+
             _levelManager.FinishAfterBattleActivity();
             StartBattle();
         }

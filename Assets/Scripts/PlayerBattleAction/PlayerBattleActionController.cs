@@ -1,6 +1,9 @@
 #nullable enable
 
+using System.Net.NetworkInformation;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Pool;
 
@@ -27,18 +30,23 @@ namespace SotongStudio
         private readonly ISeedInfoLogic _seedInfoLogic;
         private readonly ISeedInventoryLogic _seedInventoryLogic;
         private readonly IFightActionView _fightView;
+        private readonly IPlayerSeedService _seedService;
+
         private ISeedData? _currentSelectedSeed;
+        private bool _isBattle;
 
         public PlayerBattleActionController(SeedBehaviourCollection behaviourCollection,
                                             IBattleHelper battleHelper,
                                             ISeedInfoLogic seedInfoLogic,
                                             ISeedInventoryLogic seedInventoryLogic,
-                                            IFightActionView fightView)
+                                            IFightActionView fightView,
+                                            IPlayerSeedService seedService)
         {
             _behaviourCollection = behaviourCollection;
             _battleHelper = battleHelper;
             _seedInfoLogic = seedInfoLogic;
             _seedInventoryLogic = seedInventoryLogic;
+            _seedService = seedService;
 
 
             _seedInventoryLogic.OnSelectSeed.AddListener(UpdateCurrentSeed);
@@ -53,7 +61,9 @@ namespace SotongStudio
 
         private void UpdateCurrentSeed(ISeedData selectedSeed)
         {
-            if(selectedSeed == null)
+            if (!_isBattle) { return; }
+
+            if (selectedSeed == null)
             {
                 _seedInfoLogic.HideSeedInfo();
                 return;
@@ -71,12 +81,14 @@ namespace SotongStudio
         {
             ThrowSelectedSeedAsync().Forget();
         }
-        private UniTask ThrowSelectedSeedAsync()
+        private async UniTask ThrowSelectedSeedAsync()
         {
             if (_currentSelectedSeed == null)
             {
-                return UniTask.CompletedTask;
+                return;
             }
+
+            Debug.Log("Do Throw Logic");
 
             using var _ = ListPool<UniTask>.Get(out var executeTask);
 
@@ -88,7 +100,10 @@ namespace SotongStudio
                 executeTask.Add(executeProcess);
             }
 
-            return UniTask.WhenAll(executeTask);
+            await UniTask.WhenAll(executeTask);
+
+            CloseSeedInfo();
+            UseSeed(_currentSelectedSeed);
         }
 
 
@@ -96,12 +111,14 @@ namespace SotongStudio
         {
             UseSelectedSeedAsync().Forget();
         }
-        private UniTask UseSelectedSeedAsync()
+        private async UniTask UseSelectedSeedAsync()
         {
             if (_currentSelectedSeed == null)
             {
-                return UniTask.CompletedTask;
+                return;
             }
+
+            Debug.Log("Do Use Logic");
 
             using var _ = ListPool<UniTask>.Get(out var executeTask);
 
@@ -113,16 +130,32 @@ namespace SotongStudio
                 executeTask.Add(executeProcess);
             }
 
-            return UniTask.WhenAll(executeTask);
+            await UniTask.WhenAll(executeTask);
+
+            CloseSeedInfo();
+            UseSeed(_currentSelectedSeed);
         }
-    
+
+        private void UseSeed(ISeedData currentSelectedSeed)
+        {
+            _seedService.RemoveSeedFromInventory(currentSelectedSeed);
+            _seedInventoryLogic.UpdateInventoryList();
+            _currentSelectedSeed = null;
+        }
+        private void CloseSeedInfo()
+        {
+            _seedInfoLogic.HideSeedInfo();
+        }
+
         private void StartFight()
         {
-           OnStartQA?.Invoke();
+            OnStartQA?.Invoke();
         }
 
         public void ShowPreBattleUI()
         {
+            _isBattle = true; //TODO Need better Handling for Select Seed in Combine and Battle
+
             _fightView.Show();
             _seedInventoryLogic.UpdateInventoryList();
             _seedInventoryLogic.ShowInventory();
@@ -130,6 +163,8 @@ namespace SotongStudio
 
         public void HidePreBattleUI()
         {
+            _isBattle = false; //TODO Need better Handling for Select Seed in Combine and Battle
+
             _fightView.Hide();
             _seedInventoryLogic.HideInventory();
             _seedInfoLogic.HideSeedInfo();

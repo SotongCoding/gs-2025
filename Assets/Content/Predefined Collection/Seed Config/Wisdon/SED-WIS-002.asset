@@ -24,5 +24,5 @@ MonoBehaviour:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0
-  <UseBehavioursIds>k__BackingField: SBV-USE-WIS-GIVEPUNISH
+  <UseBehavioursIds>k__BackingField: SBV-USE-WIS-STEAL
   <ThrowBehavioursIds>k__BackingField: SBV-TRW-WIS-GIVEPUNISH
