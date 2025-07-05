@@ -1,7 +1,9 @@
 #nullable enable
 
+using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 using VContainer.Unity;
 
 namespace SotongStudio
@@ -18,6 +20,8 @@ namespace SotongStudio
 
         private readonly IPostBattleControlller _postBattleController;
         private readonly LevelManager _levelManager;
+
+        public UnityEvent<bool> OnGameEnd = new();
 
         public BattleSystemLogic(IPlayerBattleActionController playerBattleAction,
                                  BattleSystemView battleSystemView,
@@ -45,7 +49,8 @@ namespace SotongStudio
             _battleActionControl.OnStartQA.AddListener(StartQuickAction);
             _quickAction.OnDoneQuickAction.AddListener(DoneQuickActionSequence);
 
-            _unitManager.SetCharacterUnit(new CharacterUnit(10, 10, 3600));
+            _unitManager.SetCharacterUnit(new CharacterUnit(10, 10, 500));
+
         }
 
         private void FightButtonPressed()
@@ -82,9 +87,15 @@ namespace SotongStudio
         {
             Debug.Log("Start Battle");
             SetupEnemy(_levelManager.CurrentLevel);
+            ResetModifiedCharacterStat();
 
             _battleActionControl.ShowPreBattleUI();
 
+        }
+
+        private void ResetModifiedCharacterStat()
+        {
+            _unitManager.Character.ResetSeedStatus();
         }
 
         private void SetupEnemy(int level)
@@ -118,7 +129,7 @@ namespace SotongStudio
         {
             if (isQASuccess)
             {
-                DealDamageToEnemy();
+                await DealDamageToEnemyAsync();
             }
             else
             {
@@ -133,7 +144,18 @@ namespace SotongStudio
                 return;
             }
 
-            QTADone();
+            if (_unitManager.Character.IsDead)
+            {
+                Debug.Log("Character is dead, GAME OVER");
+                OnGameEnd.Invoke(false);
+                return;
+            }
+            else
+            {
+
+                QTADone();
+            }
+
         }
 
         private async UniTask DoEndBattleSequenceAsync()
@@ -142,7 +164,8 @@ namespace SotongStudio
 
             if (_levelManager.CurrentLevel >= 9)
             {
-                Debug.Log("This GAME OVER");
+                OnGameEnd.Invoke(true);
+                return;
             }
 
             await _postBattleController.DoPostBattleSequenceAsync();
@@ -151,7 +174,7 @@ namespace SotongStudio
             StartBattle();
         }
 
-        private void DealDamageToEnemy()
+        private UniTask DealDamageToEnemyAsync()
         {
             var enemy = _unitManager.Enemy;
             var character = _unitManager.Character;
@@ -159,7 +182,7 @@ namespace SotongStudio
 
             _battleHelper.GiveDamageToEnemy(damage);
 
-            _levelManager.EnemyView.PlayTakeDamageVFXAsync().Forget();
+            return _levelManager.EnemyView.PlayTakeDamageVFXAsync();
         }
 
         private void DealDamageToCharacter()

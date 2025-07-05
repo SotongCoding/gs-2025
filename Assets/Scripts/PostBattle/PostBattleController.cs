@@ -67,6 +67,8 @@ namespace SotongStudio
             _combineSeedLogic.Show();
             _seedInventory.ShowInventory();
 
+
+            await UniTask.WaitForSeconds(0.5f);
             await _combineSeedLogic.OnCloseCombinedSeed.OnInvokeAsync(default);
             _combineSeedLogic.Hide();
             _seedInventory.HideInventory();

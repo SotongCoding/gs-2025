@@ -1,5 +1,7 @@
+using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 
 namespace SotongStudio
 {
@@ -23,11 +25,11 @@ namespace SotongStudio
             builder.Register<PostBattleController>(Lifetime.Singleton).As<IPostBattleControlller>()
                    .WithParameter<IPostBattleView>(_postbattleView);
 
-            builder.Register<ObtainSeedLogic>(Lifetime.Singleton).As<IObtainSeedLogic>()
+            builder.RegisterEntryPoint<ObtainSeedLogic>(Lifetime.Singleton).As<IObtainSeedLogic, ITickable>()
                 .WithParameter(_seedVisual)
                 .WithParameter<IObtainSeedPopupView>(_obtainSeedView);
 
-            builder.Register<CombineSeedLogic>(Lifetime.Singleton).As<ICombineSeedLogic>()
+            builder.RegisterEntryPoint<CombineSeedLogic>(Lifetime.Singleton).As<ICombineSeedLogic, ITickable>()
                    .WithParameter<ICombineSeedView>(_combineSeedView);
         }
     }

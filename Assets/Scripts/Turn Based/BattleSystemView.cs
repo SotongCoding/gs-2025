@@ -1,8 +1,4 @@
-using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
-using NUnit.Framework;
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -111,7 +107,7 @@ namespace SotongStudio
         //Play BGM
         public void PlayAfterBattleBGM()
         {
-            _audioService.PlayMusic(1);
+            _audioService.PlayMusic(0);
         }
     }
 }

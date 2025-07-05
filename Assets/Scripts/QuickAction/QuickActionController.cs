@@ -43,12 +43,12 @@ namespace SotongStudio
                 EndQuickAction(true);
             }
 
-            // [Debug] Tekan A untuk memulai Quick Action baru
-            if (Input.GetKeyDown(KeyCode.A))//testing
-            {
-                Debug.Log("terklik");
-                StartQuickAction(5f, 5);
-            }
+            //// [Debug] Tekan A untuk memulai Quick Action baru
+            //if (Input.GetKeyDown(KeyCode.A))//testing
+            //{
+            //    Debug.Log("terklik");
+            //    StartQuickAction(5f, 5);
+            //}
 
         }
 
@@ -113,6 +113,7 @@ namespace SotongStudio
             view.HideUI();
 
             OnDoneQuickAction.Invoke(success);
+
             if (success)
             {
                 Debug.Log("Quick Action Sukses!");
