@@ -70,6 +70,7 @@ namespace SotongStudio
         public void Hide()
         {
             _combineSeedView.HideCombineSeedUI();
+            _combineSeedView.ClearResult();
         }
         public void Show()
         {
