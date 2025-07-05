@@ -149,6 +149,8 @@ namespace SotongStudio
 
         private void StartFight()
         {
+            if (!_isBattle) { return; }
+
             OnStartQA?.Invoke();
         }
 
