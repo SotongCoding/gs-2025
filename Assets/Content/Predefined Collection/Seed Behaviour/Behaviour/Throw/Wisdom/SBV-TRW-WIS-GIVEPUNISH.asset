@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SBV-TRW-WIS-GIVEPUNISH
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-WIS-GIVEPUNISH
-  Description: Throw Wisdom Give Punish
+  Description: Musuh mendapatkan HP akan tetapi mengurangi DEF.
   _givenStat:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0
-    <Health>k__BackingField: 100
+    <Health>k__BackingField: 60
   _takenStat:
     <Attack>k__BackingField: 0
-    <Defense>k__BackingField: -10
+    <Defense>k__BackingField: -7
     <Health>k__BackingField: 0

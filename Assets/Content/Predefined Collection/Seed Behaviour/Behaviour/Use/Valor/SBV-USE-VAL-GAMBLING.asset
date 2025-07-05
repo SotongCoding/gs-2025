@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SBV-USE-VAL-GAMBLING
   m_EditorClassIdentifier: 
   BehaviourId: SBV-USE-VAL-GAMBLING
-  Description: Use Valor Gambling
+  Description: Pemain mendapat efek random berupa ATK bertambah atau berkurang.
   _minStatData:
-    <Attack>k__BackingField: -5
+    <Attack>k__BackingField: -8
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0
   _maxStatData:
-    <Attack>k__BackingField: 15
+    <Attack>k__BackingField: 8
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0

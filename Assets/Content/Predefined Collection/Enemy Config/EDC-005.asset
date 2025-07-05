@@ -19,9 +19,9 @@ MonoBehaviour:
     VisualPart: {fileID: 3969153821563132169, guid: 44a3befdb586b8f4c9ef07474ef10362, type: 3}
   <StatusData>k__BackingField:
     <Attack>k__BackingField: 20
-    <Health>k__BackingField: 100
-    <Defense>k__BackingField: 0
+    <Health>k__BackingField: 40
+    <Defense>k__BackingField: 6
   <QAData>k__BackingField:
     <QADirection>k__BackingField: 
-    <QAAmount>k__BackingField: 4
+    <QAAmount>k__BackingField: 5
     <QADuration>k__BackingField: 3.5

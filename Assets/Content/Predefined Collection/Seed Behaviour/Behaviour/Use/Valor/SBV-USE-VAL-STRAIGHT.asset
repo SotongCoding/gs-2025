@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SBV-USE-VAL-STRAIGHT
   m_EditorClassIdentifier: 
   BehaviourId: SBV-USE-VAL-STRAIGHT
-  Description: Use Valor Straight
+  Description: Menambah ATK pemain.
   _statUpData:
-    <Attack>k__BackingField: 10
+    <Attack>k__BackingField: 5
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0

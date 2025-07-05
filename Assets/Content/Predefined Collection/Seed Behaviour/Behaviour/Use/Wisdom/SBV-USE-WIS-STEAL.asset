@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SBV-USE-WIS-STEAL
   m_EditorClassIdentifier: 
   BehaviourId: SBV-USE-WIS-STEAL
-  Description: Use Wisdom Steal
+  Description: Pemain mengambil DEF musuh.
   _stealedStatData:
     <Attack>k__BackingField: 0
-    <Defense>k__BackingField: 0
+    <Defense>k__BackingField: -8
     <Health>k__BackingField: 0
   _earnStatData:
     <Attack>k__BackingField: 0
-    <Defense>k__BackingField: 0
+    <Defense>k__BackingField: 8
     <Health>k__BackingField: 0

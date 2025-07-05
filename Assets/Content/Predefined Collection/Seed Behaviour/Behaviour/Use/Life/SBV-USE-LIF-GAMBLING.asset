@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SBV-USE-LIF-GAMBLING
   m_EditorClassIdentifier: 
   BehaviourId: SBV-USE-LIF-GAMBLING
-  Description: Use Life Gambling
+  Description: Pemain mendapat efek random berupa HP bertambah atau berkurang.
   _minStatData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0
-    <Health>k__BackingField: -50
+    <Health>k__BackingField: -100
   _maxStatData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0
-    <Health>k__BackingField: 200
+    <Health>k__BackingField: 100

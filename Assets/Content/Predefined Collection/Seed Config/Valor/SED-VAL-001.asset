@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SeedId: SED-VAL-001
   <InfoData>k__BackingField:
-    <SeedName>k__BackingField: Seed of Valor 1
+    <SeedName>k__BackingField: Seed of Valor
     <SeedType>k__BackingField: 0
   <VisualData>k__BackingField:
     <TopPart>k__BackingField: 0
