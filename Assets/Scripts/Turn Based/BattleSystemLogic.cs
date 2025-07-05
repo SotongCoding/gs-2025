@@ -7,7 +7,7 @@ using VContainer.Unity;
 
 namespace SotongStudio
 {
-    public class BattleSystemLogic 
+    public class BattleSystemLogic
     {
         private readonly IPlayerBattleActionController _battleActionControl;
         private readonly BattleSystemView _view;
@@ -75,8 +75,9 @@ namespace SotongStudio
 
         public void StartBattle()
         {
+            // PLay Battle BGM
             Debug.Log("Start Battle");
-            SetupEnemy(_levelManager.CurrentLevel);            
+            SetupEnemy(_levelManager.CurrentLevel);
 
             _battleActionControl.ShowPreBattleUI();
 
@@ -123,7 +124,7 @@ namespace SotongStudio
 
         private async UniTask DoEndBattleSequenceAsync()
         {
-            if (_levelManager.CurrentLevel >=9)
+            if (_levelManager.CurrentLevel >= 9)
             {
                 Debug.Log("This GAME OVER");
             }

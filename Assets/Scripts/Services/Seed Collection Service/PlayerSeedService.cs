@@ -9,11 +9,12 @@ namespace SotongStudio
     public interface IPlayerSeedService
     {
         void AddRegularSeedToInventory(string seedId);
-        void AddCombinedSeedToInventory(ISeedData combinedSeed);
+        void AddCombinedSeedToInventory(ICombinedSeed combinedSeed);
         string[] GetNonOwnedRegularSeedIds();
         IEnumerable<ISeedData> GetOwnedSeeds();
 
         void RemoveSeedFromInventory(ISeedData seedData);
+        void RemoveSeedFromInventory(List<ISeedData> selectedSeeds);
     }
 
     public class PlayerSeedService : IPlayerSeedService
@@ -37,7 +38,7 @@ namespace SotongStudio
 
         }
 
-        public void AddCombinedSeedToInventory(ISeedData combinedSeed)
+        public void AddCombinedSeedToInventory(ICombinedSeed combinedSeed)
         {
             _seedInventoryUpdate.AddSeed(combinedSeed);
         }
@@ -68,6 +69,14 @@ namespace SotongStudio
         public void RemoveSeedFromInventory(ISeedData seedData)
         {
             _seedInventoryUpdate.RemoveSeed(seedData);
+        }
+
+        public void RemoveSeedFromInventory(List<ISeedData> selectedSeeds)
+        {
+            foreach (var item in selectedSeeds)
+            {
+                RemoveSeedFromInventory(item);
+            }
         }
     }
 }

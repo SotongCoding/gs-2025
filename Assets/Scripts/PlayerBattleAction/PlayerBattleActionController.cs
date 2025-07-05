@@ -33,6 +33,7 @@ namespace SotongStudio
         private readonly IPlayerSeedService _seedService;
 
         private ISeedData? _currentSelectedSeed;
+        private bool _isBattle;
 
         public PlayerBattleActionController(SeedBehaviourCollection behaviourCollection,
                                             IBattleHelper battleHelper,
@@ -60,6 +61,8 @@ namespace SotongStudio
 
         private void UpdateCurrentSeed(ISeedData selectedSeed)
         {
+            if (!_isBattle) { return; }
+
             if (selectedSeed == null)
             {
                 _seedInfoLogic.HideSeedInfo();
@@ -151,6 +154,8 @@ namespace SotongStudio
 
         public void ShowPreBattleUI()
         {
+            _isBattle = true; //TODO Need better Handling for Select Seed in Combine and Battle
+
             _fightView.Show();
             _seedInventoryLogic.UpdateInventoryList();
             _seedInventoryLogic.ShowInventory();
@@ -158,6 +163,8 @@ namespace SotongStudio
 
         public void HidePreBattleUI()
         {
+            _isBattle = false; //TODO Need better Handling for Select Seed in Combine and Battle
+
             _fightView.Hide();
             _seedInventoryLogic.HideInventory();
             _seedInfoLogic.HideSeedInfo();
