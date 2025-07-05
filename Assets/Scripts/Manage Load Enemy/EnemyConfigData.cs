@@ -64,6 +64,6 @@ namespace SotongStudio
         public int QAAmount { get; private set; }
 
         [field: SerializeField]
-        public int QADuration { get; private set; }
+        public float QADuration { get; private set; }
     }
 }

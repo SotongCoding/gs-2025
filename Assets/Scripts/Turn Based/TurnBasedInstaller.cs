@@ -15,12 +15,12 @@ namespace SotongStudio
 
         public override void Install(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<BattleSystemLogic>();
-            builder.RegisterComponent(_playerActionView);
+            builder.Register<BattleSystemLogic>(Lifetime.Singleton);
+            //builder.RegisterComponent(_playerActionView);
             builder.RegisterComponent(_battleSystemView);
 
-            builder.RegisterEntryPoint<LevelManager>();
-            builder.RegisterComponent(_enemyConfigCollection);
+            builder.Register<LevelManager>(Lifetime.Singleton);
+            //builder.RegisterComponent(_enemyConfigCollection);
         }
     }
 }

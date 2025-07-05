@@ -7,7 +7,9 @@ namespace SotongStudio
     {
         UnityEvent OnUseSeed { get; }
         UnityEvent OnThrowSeed { get; }
+
         void ShowSeedInfo(ISeedData seedData);
+        void HideSeedInfo();
     }
     public class SeedInfoLogic : ISeedInfoLogic
     {
@@ -28,6 +30,8 @@ namespace SotongStudio
         {
             ShowUseInfo(seedData.UseBehaviourIds);
             ShowThrowInfo(seedData.ThrowBehaviourIds);
+
+            _view.Show();
         }
 
         private void ShowUseInfo(string[] useBehaviourIds)
@@ -35,7 +39,7 @@ namespace SotongStudio
             string useInfoText = GenerateInfoText(useBehaviourIds);
             _view.SetUseInfoText(useInfoText);
 
-            Debug.Log($"Set text : {useInfoText}");
+            
         }
 
         private void ShowThrowInfo(string[] throwBehaviourIds)
@@ -61,5 +65,9 @@ namespace SotongStudio
             return finalText;
         }
 
+        public void HideSeedInfo()
+        {
+            _view.Hide();
+        }
     }
 }

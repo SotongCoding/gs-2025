@@ -13,15 +13,14 @@ namespace SotongStudio
         private float timer = 0f;                 // Timer waktu berjalan
         private bool isActive = false;            // Apakah Quick Action sedang berlangsung
         private bool isComplete = false;          // Apakah semua arah sudah diinput
-        
+
         [Header("Quick Action Events")]
-        public UnityEvent onSuccess;
-        public UnityEvent onFailure;
+        public UnityEvent<bool> OnDoneQuickAction { get; private set; } = new();
 
 
         private void Update()
         {
-            
+
             timer -= Time.deltaTime;
 
             // Gagal jika waktu habis
@@ -30,7 +29,7 @@ namespace SotongStudio
                 EndQuickAction(false);
             }
             // Cek input arah
-            else if ( isActive && !isComplete && Input.anyKeyDown)
+            else if (isActive && !isComplete && Input.anyKeyDown)
             {
                 CheckInput();
             }
@@ -44,9 +43,9 @@ namespace SotongStudio
             if (Input.GetKeyDown(KeyCode.A))//testing
             {
                 Debug.Log("terklik");
-                StartQuickAction(5f,5);
+                StartQuickAction(5f, 5);
             }
-            
+
         }
 
         // Memulai Quick Action baru
@@ -109,20 +108,17 @@ namespace SotongStudio
             isComplete = false;
             view.HideUI();
 
+            OnDoneQuickAction.Invoke(success);
             if (success)
             {
                 Debug.Log("Quick Action Sukses!");
-                onSuccess.Invoke();
+               
             }
 
             else
             {
                 Debug.Log("Quick Action Gagal!");
-                onFailure.Invoke();
             }
-                
-            
-
         }
     }
 }

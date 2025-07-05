@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Events;
@@ -9,20 +8,25 @@ namespace SotongStudio
     {
         UnityEvent<ISeedData> OnSelectSeed { get; }
         void UpdateInventoryList();
+
+        void ShowInventory();
+        void HideInventory();
         
     }
     public class SeedInventoryLogic : ISeedInventoryLogic
     {
-
+        private readonly ISeedInventoryView _view;
         private readonly IPlayerSeedService _seedDataService;
         private readonly IReadOnlyList<ISeedInventoryItemLogic> _inventoryItems;
         public UnityEvent<ISeedData> OnSelectSeed { get; private set; } = new();
 
         public SeedInventoryLogic(IPlayerSeedService seedDataService,
-                                  IReadOnlyList<ISeedInventoryItemLogic> inventoryItems)
+                                  IReadOnlyList<ISeedInventoryItemLogic> inventoryItems,
+                                  ISeedInventoryView view)
         {
             _seedDataService = seedDataService;
             _inventoryItems = inventoryItems;
+            _view = view;
 
             foreach (var item in inventoryItems)
             {
@@ -48,6 +52,16 @@ namespace SotongStudio
             {
                 _inventoryItems[i].ClearSeedVisual();
             }
+        }
+
+        public void ShowInventory()
+        {
+            _view.Show();
+        }
+
+        public void HideInventory()
+        {
+            _view.Hide();
         }
     }
 }

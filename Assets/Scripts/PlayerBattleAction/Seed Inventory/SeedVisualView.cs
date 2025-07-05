@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace SotongStudio
 {
@@ -30,8 +28,13 @@ namespace SotongStudio
         [SerializeField]
         private CanvasGroup _lifeBottPartCanvas;
 
-
-        public void ShowTopPart(SeedType topPart)
+        public void ShowSeedAs(SeedType topPart, SeedType middle, SeedType bottomPart)
+        {
+            ShowTopPart(topPart);
+            ShowMiddPart(middle);
+            ShowBottPart(bottomPart);
+        }
+        private void ShowTopPart(SeedType topPart)
         {
             _valorTopPartCanvas.Hide();
             _wisdomTopPartCanvas.Hide();
@@ -53,7 +56,7 @@ namespace SotongStudio
             }
         }
 
-        public void ShowMiddPart(SeedType midPart)
+        private void ShowMiddPart(SeedType midPart)
         {
             _valorMiddPartCanvas.Hide();
             _wisdomMiddPartCanvas.Hide();
@@ -75,7 +78,7 @@ namespace SotongStudio
             }
         }
 
-        public void ShowBottPart(SeedType botPart)
+        private void ShowBottPart(SeedType botPart)
         {
             _valorBottPartCanvas.Hide();
             _wisdomBottPartCanvas.Hide();

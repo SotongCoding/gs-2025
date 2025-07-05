@@ -1,11 +1,8 @@
-using NaughtyAttributes;
-using System;
 using UnityEngine;
-using VContainer.Unity;
 
 namespace SotongStudio
 {
-    public class LevelManager : IStartable
+    public class LevelManager 
     {
         private readonly EnemyConfigCollection _enemyConfigCollection;
         private readonly BattleSystemView _battleSystemView;
@@ -16,6 +13,8 @@ namespace SotongStudio
 
         private EnemyView _enemyView;
 
+        public int CurrentLevel => _level;
+
         public LevelManager(EnemyConfigCollection enemyConfigCollection, BattleSystemView battleSystemView)
         {
             this._enemyConfigCollection = enemyConfigCollection;
@@ -25,19 +24,12 @@ namespace SotongStudio
             _battleSystemView.OnFinishAfterBattleActivity.AddListener(FinishAfterBattleActivity);
         }
 
-        void IStartable.Start()
-        {
-            Debug.Log($"Level {_level}");
-            InisiateEnemy();
-            _enemyView.SetEnemyParts(_level);
-            _enemyConfigCollection.GetItem($"{_level}");
-        }
-
         public void InisiateEnemy()
         {
             _enemyConfigData = _enemyConfigCollection.GetItem($"{_level}");
             _instanceObject = UnityEngine.Object.Instantiate(_enemyConfigData.VisualData.VisualPart, Vector3.zero, Quaternion.identity);
             _enemyView = _instanceObject.GetComponent<EnemyView>();
+            _enemyView.SetEnemyParts(_level);
         }
 
         private void IncreaseLevel()
@@ -50,7 +42,7 @@ namespace SotongStudio
 
         private void ResetLevel()
         {
-            if(_level != 0)
+            if (_level != 0)
             {
                 _level = 0;
             }
@@ -78,12 +70,12 @@ namespace SotongStudio
 
         private void AfterBattleActivity()
         {
-            if(_level == 9)
+            if (_level == 9)
             {
                 Debug.Log("Game Ended");
                 ResetLevel();
             }
-            else if(_level % 3 == 0)
+            else if (_level % 3 == 0)
             {
                 GetASeed();
                 EnchantSeed();
@@ -95,17 +87,22 @@ namespace SotongStudio
             CombineSeed();
         }
 
-        private void DefeatEnemy()
+        public void DefeatEnemy()
         {
             _enemyView.HideEnemy(_level);
-            AfterBattleActivity();
         }
 
-        private void FinishAfterBattleActivity()
+        public void FinishAfterBattleActivity()
         {
             IncreaseLevel();
             Debug.Log($"Level {_level}");
             _enemyView.ShowEnemy(_level);
+        }
+
+        public EnemyConfigData GetCurrentEnemyConfig()
+        {
+            var config = _enemyConfigCollection.GetItem($"{_level}");
+            return config;
         }
     }
 }

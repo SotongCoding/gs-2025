@@ -20,33 +20,31 @@ namespace SotongStudio
         [SerializeField]
         private SeedVisualView _seedView;
 
-        private SeedVisualControl _visualControl;
-
         private ISeedData? _handledSeed;
 
         public void Awake()
         {
-            _visualControl = new(_seedView);
+            
             _view.OnSelectSeed.AddListener(SelectSeedProcess);
         }
 
         public void ClearSeedVisual()
         {
-            _visualControl.HideVisual();
+            _seedView.HideVisual();
         }
 
         public void SetupSeedItem(ISeedData? seedData)
         {
             if (seedData == null)
             {
-                _visualControl.HideVisual();
+                _seedView.HideVisual();
                 _handledSeed = null;
             }
             else
             {
 
                 _handledSeed = seedData;
-                _visualControl.ShowSeedAs(seedData.VisualData.TopPart,
+                _seedView.ShowSeedAs(seedData.VisualData.TopPart,
                                           seedData.VisualData.MiddlePart,
                                           seedData.VisualData.BottomPart);
             }

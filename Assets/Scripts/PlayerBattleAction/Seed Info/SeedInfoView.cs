@@ -12,6 +12,9 @@ namespace SotongStudio
 
         void SetThrowInfoText(string useInfoText);
         void SetUseInfoText(string useInfoText);
+
+        void Show();
+        void Hide();
     }
     public class SeedInfoView : MonoBehaviour, ISeedInfoView
     {
@@ -31,6 +34,9 @@ namespace SotongStudio
         [SerializeField]
         private Button _throwActionButton;
 
+
+        [SerializeField]
+        private CanvasGroup _seedInfoCanvas;
         public void SetThrowInfoText(string useInfoText)
         {
             _throwText.text = useInfoText;
@@ -39,6 +45,16 @@ namespace SotongStudio
         public void SetUseInfoText(string useInfoText)
         {
             _useText.text = useInfoText;
+        }
+
+        public void Show()
+        {
+            _seedInfoCanvas.Show();
+        }
+
+        public void Hide()
+        {
+            _seedInfoCanvas.Hide();
         }
     }
 }
