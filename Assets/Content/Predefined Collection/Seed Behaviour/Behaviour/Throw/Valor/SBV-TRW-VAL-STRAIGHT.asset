@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SBV-TRW-VAL-STRAIGHT
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-VAL-STRAIGHT
-  Description: Throw Valor Straight
+  Description: Mengurangi ATK musuh.
   _statUpData:
-    <Attack>k__BackingField: -10
+    <Attack>k__BackingField: -3
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0

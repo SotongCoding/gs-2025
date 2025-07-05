@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SBV-TRW-LIF-GAMBLING
   m_EditorClassIdentifier: 
   BehaviourId: SBV-TRW-LIF-GAMBLING
-  Description: Gambling Throw Life
+  Description: Musuh mendapat efek random berupa HP bertambah atau berkurang.
   _minStatData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0
-    <Health>k__BackingField: -300
+    <Health>k__BackingField: -100
   _maxStatData:
     <Attack>k__BackingField: 0
     <Defense>k__BackingField: 0
-    <Health>k__BackingField: 300
+    <Health>k__BackingField: 100

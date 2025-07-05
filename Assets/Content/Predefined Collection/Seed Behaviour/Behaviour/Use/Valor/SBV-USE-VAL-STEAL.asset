@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SBV-USE-VAL-STEAL
   m_EditorClassIdentifier: 
   BehaviourId: SBV-USE-VAL-STEAL
-  Description: Use Valor Steal
+  Description: Pemain mengambil ATK musuh.
   _stealedStatData:
-    <Attack>k__BackingField: -10
+    <Attack>k__BackingField: -8
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0
   _earnStatData:
-    <Attack>k__BackingField: 10
+    <Attack>k__BackingField: 8
     <Defense>k__BackingField: 0
     <Health>k__BackingField: 0
